@@ -1,0 +1,32 @@
+.footer{
+    background-color: $black;
+    color: $mercury;
+
+    &__icons-list {
+        display: flex;
+        justify-content: flex-start;
+        list-style-type: none;
+        padding: 16px;
+    }
+
+    &__icon{
+        padding-right: 32px;
+    }
+
+    &__logo{
+        display: none;
+    }
+
+    &__contact-info{
+        list-style-type: none;
+        padding-left: 8px;
+
+        &--bold{
+            font-family: "AvenirDemiBold";
+        }
+
+        &--with-margin{
+            margin-top: 10px;
+        }
+    }
+}

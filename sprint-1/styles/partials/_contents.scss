@@ -1,0 +1,82 @@
+//Settings for positioning all of the elements
+@mixin position-element {
+    margin-top: 0;
+    width: 100%;
+    padding: 0 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hero{
+    width: 100vw;
+    height: 183px;
+    background-image: url(../../assets/images/hero-image.jpg);
+    background-size: contain;
+    display: flex;
+    align-items: center;
+
+
+    &__text{
+        color: $white;
+        font-family: "AvenirBold";
+        text-align: center;
+        padding-left: 5vw;
+        // font-size: ;
+    }
+}
+
+.about{
+    width: 100vw;
+    margin-top: 32px;
+
+    &__title {
+        margin-bottom: 24px;
+        font-family: "AvenirBold";
+    }
+
+    &__image{
+       @include position-element;
+       margin-bottom: 24px;
+    }
+
+    &__quote{
+       @include position-element;
+       margin-bottom: 32px;
+       font-family: "AvenirDemiBold";
+
+       &-name{
+           @include position-element;
+           margin-bottom: 40px;
+           font-family: "AvenirDemiBold";
+       }
+    }
+
+    &__subtitle{
+       @include position-element;
+       margin-bottom: 24px;
+       font-family: "AvenirDemiBold";
+    }
+
+    &__text{
+       @include position-element;
+       margin-bottom: 40px;
+    }
+}
+
+
+.gallery{
+    margin-top: 32px;
+
+    &__title{
+        @include position-element;
+        margin-bottom: 24px;
+        font-family: "AvenirBold";
+    }
+
+    &__image{
+        @include position-element;
+        margin-bottom: 16px;
+    }
+}

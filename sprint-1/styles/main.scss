@@ -1,0 +1,16 @@
+@import "./partials/colors";
+@import "./partials/fonts";
+@import "./partials/header";
+@import "./partials/footer";
+@import "./partials/contents";
+
+html, body{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "AvenirRegular";
+    height: 100vh;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
