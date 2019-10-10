@@ -1,155 +1,225 @@
 //Settings for positioning all of the elements
-@mixin position-element ($padding) {
-    margin-top: 0;
-    width: 100%;
-    padding: 0 $padding;
+@mixin position-element($padding) {
+  box-sizing: border-box;
+  margin-top: 0;
+  width: 100%;
+  padding: 0 $padding;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.hero{
-    width: 100vw;
-    height: 183px;
-    background-image: url(../assets/images/hero-image.jpg);
-    background-size: contain;
-    display: flex;
-    align-items: center;
+.hero {
+  width: 100vw;
+  height: 57.19vw; //183/320
+  background-image: url(../assets/images/hero-image.jpg);
+  background-size: contain;
+  display: flex;
+  align-items: center;
 
-
-    &__text{
-        color: $white;
-        font-family: "AvenirBold";
-        text-align: center;
-        padding-left: 5vw;
-        // font-size: ;
-    }
+  &__text {
+    color: $white;
+    font-family: "AvenirBold";
+    text-align: center;
+    padding-left: 5vw;
+    // font-size: ;
+  }
 }
 
-.about{
-    width: 100vw;
-    margin-top: 32px;
+.about {
+  width: 100vw;
+  margin-top: 32px;
 
-    &__title {
-        @include position-element(5vw);
-        margin-bottom: 24px;
-        font-family: "AvenirBold";
+  &__title {
+    @include position-element(5vw);
+    margin-bottom: 24px;
+    font-family: "AvenirBold";
+  }
+
+  &__image {
+    @include position-element(5vw);
+    margin-bottom: 24px;
+  }
+
+  &__quote {
+    @include position-element(5vw);
+    margin-bottom: 32px;
+    font-family: "AvenirDemiBold";
+
+    &-name {
+      @include position-element(5vw);
+      margin-bottom: 40px;
+      font-family: "AvenirDemiBold";
     }
+  }
 
-    &__image{
-       @include position-element(5vw);
-       margin-bottom: 24px;
-    }
+  &__subtitle {
+    @include position-element(5vw);
+    margin-bottom: 24px;
+    font-family: "AvenirDemiBold";
+  }
 
-    &__quote{
-       @include position-element(5vw);
-       margin-bottom: 32px;
-       font-family: "AvenirDemiBold";
-
-       &-name{
-           @include position-element(5vw);
-           margin-bottom: 40px;
-           font-family: "AvenirDemiBold";
-       }
-    }
-
-    &__subtitle{
-       @include position-element(5vw);
-       margin-bottom: 24px;
-       font-family: "AvenirDemiBold";
-    }
-
-    &__text{
-       @include position-element(5vw);
-       margin-bottom: 40px;
-    }
+  &__text {
+    @include position-element(5vw);
+    margin-bottom: 40px;
+  }
 }
-
 
 .gallery {
-    margin-top: 32px;
+  background-color: $alabaster;
+  margin-top: 32px;
+  margin-bottom: 16px;
+
+  &__title {
+    @include position-element(5vw);
+    margin-bottom: 24px;
+    font-family: "AvenirBold";
+  }
+
+  &__image {
+    @include position-element(5vw);
     margin-bottom: 16px;
-
-    &__title{
-        @include position-element(5vw);
-        margin-bottom: 24px;
-        font-family: "AvenirBold";
-    }
-
-    &__image{
-        @include position-element(5vw);
-        margin-bottom: 16px;
-    }
+  }
 }
 
 @include medium {
-    .hero {
-        height: 400px;
+  .hero {
+    height: 52.08vw; //400/768
 
-        &__text {
-            padding-left: 3.12vw;
-        }
+    &__text {
+      padding-left: 3.12vw;
+    }
+  }
+
+  .about {
+    &__title {
+      @include position-element(3.12vw);
     }
 
-    .about {
-        &__title {
-            @include position-element(3.12vw);}
-
-        &__image{
-            @include position-element(3.12vw);
-            height: 362px;
-        }
-
-        &__quote{
-            @include position-element(3.12vw);
-
-
-            &-name{
-                @include position-element(3.12vw);
-            }
-        }
-
-        &__subtitle{
-            @include position-element(3.12vw);
-        }
-
-        &__text{
-            @include position-element(3.12vw);
-            display: flex;
-
-            &-paragraph:not(:last-child) {
-                margin-right: 3.12vw;
-            }
-        }
+    &__image {
+      @include position-element(3.12vw);
+      height: 47.13vw;
     }
 
-    .gallery {
-        &__title {
-            @include position-element(3.12vw);
-        }
+    &__quote {
+      @include position-element(3.12vw);
 
-        &__photos {
-            @include position-element(3.12vw);
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        &__image {
-            padding: 0;
-            width: 29.17vw;
-            height: 126px;
-
-            &:not(:last-child) {
-                margin-right: 3.12vw;
-            }
-        }
+      &-name {
+        @include position-element(3.12vw);
+      }
     }
 
+    &__subtitle {
+      @include position-element(3.12vw);
+    }
 
+    &__text {
+      @include position-element(3.12vw);
+      display: flex;
+
+      &-paragraph:not(:last-child) {
+        margin-right: 3.12vw;
+      }
+    }
+  }
+
+  .gallery {
+    &__title {
+      @include position-element(3.12vw);
+    }
+
+    &__photos {
+      @include position-element(3.12vw);
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+    }
+
+    &__image {
+      padding: 0;
+      width: 29.17vw;
+      height: 16.41vw;
+      margin: 1.56vw 0;
+    }
+  }
 }
 
 @include huge {
+  .hero {
+    height: 46.53vw; //670/1440
 
+    &__text {
+      padding-left: 12.5vw; //180/1440
+    }
+  }
+
+  .about {
+    margin-top: 48px;
+
+    &__title {
+      @include position-element(12.5vw);
+      margin-bottom: 48px;
+    }
+
+    &__image {
+      @include position-element(18.89vw);
+      height: 31.25vw; //450/1440
+      margin-bottom: 48px;
+    }
+
+    &__quote {
+      @include position-element(18.89vw);
+      margin-bottom: 40px;
+
+      &-name {
+        @include position-element(18.89vw);
+        margin-bottom: 56px;
+      }
+    }
+
+    &__subtitle {
+      @include position-element(18.89vw);
+      margin-bottom: 32px;
+    }
+
+    &__text {
+      @include position-element(18.89vw);
+      margin-bottom: 48px;
+      display: flex;
+
+      &-paragraph {
+        box-sizing: content-box;
+        width: 420px; //420/1440
+
+        &:not(:last-child) {
+          margin-right: 2.78vw; //40/1440
+        }
+      }
+    }
+  }
+
+  .gallery {
+    margin-bottom: 40px;
+
+    &__title {
+      @include position-element(12.5vw);
+      padding-top: 48px;
+      margin-bottom: 64px;
+    }
+
+    &__photos {
+      @include position-element(12.5vw);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    &__image {
+      padding: 0;
+      width: 23.89vw;
+      height: 13.4vw;
+      margin: 0.83vw 0;
+    }
+  }
 }

@@ -211,7 +211,7 @@
 
 .hero {
   width: 100vw;
-  height: 183px;
+  height: 57.19vw;
   background-image: url(../assets/images/hero-image.jpg);
   background-size: contain;
   display: -webkit-box;
@@ -235,6 +235,8 @@
 }
 
 .about__title {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -243,6 +245,8 @@
 }
 
 .about__image {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -250,6 +254,8 @@
 }
 
 .about__quote {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -258,6 +264,8 @@
 }
 
 .about__quote-name {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -266,6 +274,8 @@
 }
 
 .about__subtitle {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -274,6 +284,8 @@
 }
 
 .about__text {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -281,11 +293,14 @@
 }
 
 .gallery {
+  background-color: #FAFAFA;
   margin-top: 32px;
   margin-bottom: 16px;
 }
 
 .gallery__title {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -294,6 +309,8 @@
 }
 
 .gallery__image {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
@@ -302,38 +319,50 @@
 
 @media only screen and (min-width: 768px) {
   .hero {
-    height: 400px;
+    height: 52.08vw;
   }
   .hero__text {
     padding-left: 3.12vw;
   }
   .about__title {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
   }
   .about__image {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
-    height: 362px;
+    height: 47.13vw;
   }
   .about__quote {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
   }
   .about__quote-name {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
   }
   .about__subtitle {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
   }
   .about__text {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
@@ -345,30 +374,137 @@
     margin-right: 3.12vw;
   }
   .gallery__title {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
   }
   .gallery__photos {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
   .gallery__image {
     padding: 0;
     width: 29.17vw;
-    height: 126px;
+    height: 16.41vw;
+    margin: 1.56vw 0;
   }
-  .gallery__image:not(:last-child) {
-    margin-right: 3.12vw;
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero {
+    height: 46.53vw;
+  }
+  .hero__text {
+    padding-left: 12.5vw;
+  }
+  .about {
+    margin-top: 48px;
+  }
+  .about__title {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 12.5vw;
+    margin-bottom: 48px;
+  }
+  .about__image {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 18.89vw;
+    height: 31.25vw;
+    margin-bottom: 48px;
+  }
+  .about__quote {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 18.89vw;
+    margin-bottom: 40px;
+  }
+  .about__quote-name {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 18.89vw;
+    margin-bottom: 56px;
+  }
+  .about__subtitle {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 18.89vw;
+    margin-bottom: 32px;
+  }
+  .about__text {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 18.89vw;
+    margin-bottom: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .about__text-paragraph {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    width: 420px;
+  }
+  .about__text-paragraph:not(:last-child) {
+    margin-right: 2.78vw;
+  }
+  .gallery {
+    margin-bottom: 40px;
+  }
+  .gallery__title {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 12.5vw;
+    padding-top: 48px;
+    margin-bottom: 64px;
+  }
+  .gallery__photos {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: 0;
+    width: 100%;
+    padding: 0 12.5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .gallery__image {
+    padding: 0;
+    width: 23.89vw;
+    height: 13.4vw;
+    margin: 0.83vw 0;
   }
 }
 
