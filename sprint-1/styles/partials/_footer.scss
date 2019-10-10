@@ -1,32 +1,50 @@
 .footer{
     background-color: $black;
     color: $mercury;
+    padding-top: 48px;
+    padding-bottom: 32px; 
+
+    &__title {
+        margin-top: 0;
+        padding: 0 4%;
+        font-family: "AvenirBold";
+
+    }
 
     &__icons-list {
         display: flex;
         justify-content: flex-start;
         list-style-type: none;
-        padding: 16px;
+        padding: 10px 5%;
     }
 
     &__icon{
-        padding-right: 32px;
+        padding-right: 10%;
     }
 
     &__logo{
         display: none;
     }
 
-    &__contact-info{
-        list-style-type: none;
-        padding-left: 8px;
+    &__contact {
+        padding: 5px 0;
+    
+        &-info{
+            list-style-type: none;
+            padding-left: 4%;
 
-        &--bold{
-            font-family: "AvenirDemiBold";
-        }
+            &--bold{
+                font-family: "AvenirDemiBold";
+            }
 
-        &--with-margin{
-            margin-top: 10px;
+            &--with-margin{
+                margin-top: 10px;
+            }
         }
+    }
+
+    &__copyright {
+        padding-left: 2.5%;
+        margin-bottom: 48px;
     }
 }

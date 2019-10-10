@@ -1,8 +1,8 @@
 //Settings for positioning all of the elements
-@mixin position-element {
+@mixin position-element ($padding) {
     margin-top: 0;
     width: 100%;
-    padding: 0 16px;
+    padding: 0 $padding;
 }
 
 * {
@@ -12,7 +12,7 @@
 .hero{
     width: 100vw;
     height: 183px;
-    background-image: url(../../assets/images/hero-image.jpg);
+    background-image: url(../assets/images/hero-image.jpg);
     background-size: contain;
     display: flex;
     align-items: center;
@@ -32,51 +32,124 @@
     margin-top: 32px;
 
     &__title {
+        @include position-element(5vw);
         margin-bottom: 24px;
         font-family: "AvenirBold";
     }
 
     &__image{
-       @include position-element;
+       @include position-element(5vw);
        margin-bottom: 24px;
     }
 
     &__quote{
-       @include position-element;
+       @include position-element(5vw);
        margin-bottom: 32px;
        font-family: "AvenirDemiBold";
 
        &-name{
-           @include position-element;
+           @include position-element(5vw);
            margin-bottom: 40px;
            font-family: "AvenirDemiBold";
        }
     }
 
     &__subtitle{
-       @include position-element;
+       @include position-element(5vw);
        margin-bottom: 24px;
        font-family: "AvenirDemiBold";
     }
 
     &__text{
-       @include position-element;
+       @include position-element(5vw);
        margin-bottom: 40px;
     }
 }
 
 
-.gallery{
+.gallery {
     margin-top: 32px;
+    margin-bottom: 16px;
 
     &__title{
-        @include position-element;
+        @include position-element(5vw);
         margin-bottom: 24px;
         font-family: "AvenirBold";
     }
 
     &__image{
-        @include position-element;
+        @include position-element(5vw);
         margin-bottom: 16px;
     }
+}
+
+@include medium {
+    .hero {
+        height: 400px;
+
+        &__text {
+            padding-left: 3.12vw;
+        }
+    }
+
+    .about {
+        &__title {
+            @include position-element(3.12vw);}
+
+        &__image{
+            @include position-element(3.12vw);
+            height: 362px;
+        }
+
+        &__quote{
+            @include position-element(3.12vw);
+
+
+            &-name{
+                @include position-element(3.12vw);
+            }
+        }
+
+        &__subtitle{
+            @include position-element(3.12vw);
+        }
+
+        &__text{
+            @include position-element(3.12vw);
+            display: flex;
+
+            &-paragraph:not(:last-child) {
+                margin-right: 3.12vw;
+            }
+        }
+    }
+
+    .gallery {
+        &__title {
+            @include position-element(3.12vw);
+        }
+
+        &__photos {
+            @include position-element(3.12vw);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        &__image {
+            padding: 0;
+            width: 29.17vw;
+            height: 126px;
+
+            &:not(:last-child) {
+                margin-right: 3.12vw;
+            }
+        }
+    }
+
+
+}
+
+@include huge {
+
 }

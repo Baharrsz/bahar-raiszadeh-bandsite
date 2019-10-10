@@ -11,19 +11,17 @@
 
 <body>
     <header class="header">
-        <div class="header__logo">
-            <img src="./assets/Logo/Logo-bandsite.svg" alt="logo">
-        </div>
-        <nav class="header__nav">
-            <ul class="header__nav-list">
-                <li class="header__nav-item header__nav-item--active">
-                    <a class="header__nav-link" href="#">Biography</a>
-                </li>
-                <li class="header__nav-item">
-                    <a class="header__nav-link" href="#">Shows</a>
-                </li>
-            </ul>
-        </nav>
+        <a class="header__logo-link" href="#">
+            <img class="header__logo" src="./assets/logos/logo-bandsite.svg" alt="logo">
+        </a>
+        <ul class="header__nav">
+            <li class="header__nav-item header__nav-item--active">
+                <a class="header__nav-link" href="#">Biography</a>
+            </li>
+            <li class="header__nav-item">
+                <a class="header__nav-link" href="#">Shows</a>
+            </li>
+        </ul>
     </header>
     <main>
         <section class="hero">
@@ -38,22 +36,32 @@
                 than this’”</h2>
             <h3 class="about__quote-name">- Xavier de Rosnay</h3>
             <h2 class="about__subtitle">Xavier de Rosnay & Gaspard Augé</h2>
-            <p class="about__text">
-                Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label, seeking
-                tracks for a compilation. With an immediate connection, the pair decided to try their hand at making a
-                song. That’s when they created their breakout single, We Are Your Friends – a feel-good, funk-filled,
-                instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the newly
-                founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his
-                office, signing a record deal.
-            </p>
-            <p class="about__text">
-                Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label, seeking
-                tracks for a compilation. With an immediate connection, the pair decided to try their hand at making a
-                song. That’s when they created their breakout single, We Are Your Friends – a feel-good, funk-filled,
-                instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the newly
-                founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his
-                office, signing a record deal.
-            </p>
+            <div class="about__text">
+                <p class="about__text-paragraph">
+                    Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label,
+                    seeking
+                    tracks for a compilation. With an immediate connection, the pair decided to try their hand at making
+                    a
+                    song. That’s when they created their breakout single, We Are Your Friends – a feel-good,
+                    funk-filled,
+                    instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the
+                    newly
+                    founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his
+                    office, signing a record deal.
+                </p>
+                <p class="about__text-paragraph">
+                    Xavier De Ronsay and Gaspard Augé had a few mutual friends, who happened to run a record label,
+                    seeking
+                    tracks for a compilation. With an immediate connection, the pair decided to try their hand at making
+                    a
+                    song. That’s when they created their breakout single, We Are Your Friends – a feel-good,
+                    funk-filled,
+                    instant anthem that lost the remix contest, but won the attention of Pedro Winter, director of the
+                    newly
+                    founded Ed Banger Records, who boasted Daft Punk as former clients. One week later, they were in his
+                    office, signing a record deal.
+                </p>
+            </div>
 
         </section>
 
@@ -100,47 +108,44 @@
         </div>
         <!-- Icons for social media -->
 
-        <div class="footer__logo">
-            <img src="./assets/Logo/Logo-bandsite.svg" alt="logo">
 
-        </div>
+        <img class="footer__logo" src="./assets/Logo/Logo-bandsite.svg" alt="logo">
 
         <!-- Three contacts and their information -->
         <div class="footer__contacts">
-            <div class="footer__contact">
-                <ul class="footer__contact-info">
-                    <li class="footer__contact-info footer__contact-info--bold">Richard Rovner</li>
-                    <li class="footer__contact-info footer__contact-info--bold">The Bees Knees Management</li>
-                    <li class="footer__contact-info footer__contact-info--with-margin">460 King Street West</li>
-                    <li class="footer__contact-info">Toronto, Ontario M5V 1L7</li>
-                    <li class="footer__contact-info footer__contact-info--with-margin">info@thebeesknees.com</li>
-                </ul>
-            </div>
+            <ul class="footer__contact">
+                <li class="footer__contact-info footer__contact-info--bold">Richard Rovner</li>
+                <li class="footer__contact-info footer__contact-info--bold">The Bees Knees Management</li>
+                <li class="footer__contact-info footer__contact-info--with-margin">460 King Street West
+                </li>
+                <li class="footer__contact-info">Toronto, Ontario M5V 1L7</li>
+                <li class="footer__contact-info footer__contact-info--with-margin">info@thebeesknees.com
+                </li>
+            </ul>
 
-            <div class="footer__contact">
-                <ul class="footer__contact-info">
-                    <li class="footer__contact-info footer__contact-info--bold">Artist Group International</li>
-                    <li class="footer__contact-info footer__contact-info--bold">Marsha Vlasic</li>
-                    <li class="footer__contact-info footer__contact-info--with-margin">Booking Agent for</li>
-                    <li class="footer__contact-info">US / South America / Japan</li>
-                    <li class="footer__contact-info footer__contact-info--with-margin">marsha.vlasic@artistgrp.com</li>
-                </ul>
-            </div>
+            <ul class="footer__contact">
+                <li class="footer__contact-info footer__contact-info--bold">Artist Group International
+                </li>
+                <li class="footer__contact-info footer__contact-info--bold">Marsha Vlasic</li>
+                <li class="footer__contact-info footer__contact-info--with-margin">Booking Agent for</li>
+                <li class="footer__contact-info">US / South America / Japan</li>
+                <li class="footer__contact-info footer__contact-info--with-margin">
+                    marsha.vlasic@artistgrp.com</li>
+            </ul>
 
-            <div class="footer__contact">
-                <ul class="footer__contact-info">
-                    <li class="footer__contact-info footer__contact-info--bold">Russel Warby</li>
-                    <li class="footer__contact-info footer__contact-info--bold">William Morrir Entertainment</li>
-                    <li class="footer__contact-info footer__contact-info--with-margin">Booking Agent for</li>
-                    <li class="footer__contact-info">UK / EU / AU</li>
-                    <li class="footer__contact-info footer__contact-info--with-margin">RLW@wmeentertainment.com</li>
-                </ul>
-            </div>
+            <ul class="footer__contact">
+                <li class="footer__contact-info footer__contact-info--bold">William Morrir Entertainment
+                </li>
+                <li class="footer__contact-info footer__contact-info--bold">Russel Warby</li>
+                <li class="footer__contact-info footer__contact-info--with-margin">Booking Agent for</li>
+                <li class="footer__contact-info">UK / EU / AU</li>
+                <li class="footer__contact-info footer__contact-info--with-margin">
+                    RLW@wmeentertainment.com</li>
+            </ul>
         </div>
         <!-- Three contacts and their information -->
 
-
-        <p class="footer__copyright">Copyright The Bees Knees © 2018 All Rights Reserved</p>
+        <p class="footer__copyright">Copyright The Bees Knees © 2018 <br> All Rights Reserved</p>
 
     </footer>
 
