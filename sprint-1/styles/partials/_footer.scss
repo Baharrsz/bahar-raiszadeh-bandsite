@@ -1,50 +1,154 @@
-.footer{
-    background-color: $black;
-    color: $mercury;
-    padding-top: 48px;
-    padding-bottom: 32px; 
+.footer {
+  background-color: $black;
+  color: $mercury;
+  padding-top: 48px;
+  padding-bottom: 32px;
 
-    &__title {
-        margin-top: 0;
-        padding: 0 4%;
-        font-family: "AvenirBold";
+  &__title {
+    margin-top: 0;
+    padding: 0 4%;
+    font-family: "AvenirBold";
+  }
 
+  &__icons {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 5%;
+  }
+
+  &__icon {
+    list-style-type: none;
+    padding-right: 10%;
+  }
+
+  &__logo {
+    display: none;
+  }
+
+  &__contact {
+    padding: 5px 0;
+
+    &-info {
+      list-style-type: none;
+      padding-left: 4%;
+
+      &--semibold {
+        font-family: "AvenirDemiBold";
+      }
+
+      &--with-margin {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__copyright {
+    padding-left: 2.5%;
+    margin-bottom: 48px;
+
+    &-new-line {
+      display: block;
+    }
+  }
+}
+
+@include medium {
+  .footer {
+    padding: 40px 3.12vw;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+
+      > * {
+        margin: 0;
+        padding: 0;
+      }
     }
 
-    &__icons-list {
-        display: flex;
-        justify-content: flex-start;
-        list-style-type: none;
-        padding: 10px 5%;
+    &__icon {
+      padding-right: 3.25vw;
     }
 
-    &__icon{
-        padding-right: 10%;
+    &__logo {
+      display: unset;
+      padding-left: 12vw;
     }
 
-    &__logo{
-        display: none;
+    &__contacts {
+      display: flex;
+      justify-content: flex-start;
     }
 
     &__contact {
-        padding: 5px 0;
-    
-        &-info{
-            list-style-type: none;
-            padding-left: 4%;
-
-            &--bold{
-                font-family: "AvenirDemiBold";
-            }
-
-            &--with-margin{
-                margin-top: 10px;
-            }
-        }
+      width: 29.17vw;
     }
 
     &__copyright {
-        padding-left: 2.5%;
-        margin-bottom: 48px;
+      padding-left: 0;
+      margin-bottom: 0;
+
+      &-new-line {
+        display: inline;
+      }
     }
+  }
+}
+
+@include huge {
+  .footer {
+    padding: 48px 12.5vw;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 56px;
+
+      > * {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &__icon {
+      padding-right: 2.22vw; //32/1440
+    }
+
+    &__logo {
+      box-sizing: content-box;
+      width: 8.33vw;
+      height: 1.67vw;
+      display: unset;
+      padding-left: 18vw;
+    }
+
+    &__contacts {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    &__contact {
+      padding: 0;
+      margin: 0;
+      width: 19.17vw;
+
+      &-info {
+        &--with-margin {
+          margin-top: 24px;
+        }
+      }
+    }
+
+    &__copyright {
+      padding-left: 0;
+      margin-bottom: 0;
+
+      &-new-line {
+        display: inline;
+      }
+    }
+  }
 }
