@@ -82,11 +82,38 @@
 .header__nav-item:hover {
   color: #FFF;
   border-bottom: 2px solid #FFF;
+  font-family: "AvenirDemiBold";
+}
+
+.header__nav-item:hover .header__nav-dropdown {
+  display: block;
 }
 
 .header__nav-link {
   color: #E1E1E1;
   text-decoration: none;
+}
+
+.header__nav-dropdown {
+  display: none;
+  position: fixed;
+  top: 80px;
+  background-color: #323232;
+  z-index: 1;
+  padding: 0;
+  width: 50%;
+}
+
+.header__nav-dropdown-item {
+  list-style-type: none;
+  padding: 10px 0;
+  border-bottom: 1px solid #AFAFAF;
+  text-align: center;
+}
+
+.header__nav-dropdown-item-link {
+  text-decoration: none;
+  color: #E1E1E1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -118,6 +145,12 @@
         -ms-flex-align: center;
             align-items: center;
   }
+  .header__nav-dropdown {
+    width: auto;
+  }
+  .header__nav-dropdown-item {
+    padding: 10px 2vw;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -147,6 +180,12 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .header__nav-dropdown {
+    width: auto;
+  }
+  .header__nav-dropdown-item {
+    padding: 10px 2vw;
   }
 }
 
