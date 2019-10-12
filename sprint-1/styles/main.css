@@ -43,7 +43,7 @@
   -webkit-box-flex: 67%;
       -ms-flex: 67%;
           flex: 67%;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 16px;
 }
 
@@ -199,6 +199,10 @@
   margin-top: 10px;
 }
 
+.footer__contact-info-mail {
+  color: #E1E1E1;
+}
+
 .footer__copyright {
   padding-left: 2.5%;
   margin-bottom: 48px;
@@ -311,22 +315,38 @@
   }
 }
 
+/*This stylesheet includes the stylings for the main content of the page,
+including hero, the 'about' section and photo gallery*/
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
+/*Stylings for the mobile version
+content block for the 'small' mixin in the partials/__breakpoints*/
 .hero {
   width: 100vw;
   height: 57.19vw;
   background-image: url(../assets/images/hero-image.jpg);
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 0;
+  position: relative;
+}
+
+.hero__overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  z-index: 1;
 }
 
 .hero__text {
@@ -334,6 +354,7 @@
   font-family: "AvenirBold";
   text-align: center;
   padding-left: 5vw;
+  z-index: 2;
 }
 
 .about {
@@ -403,6 +424,7 @@
   background-color: #FAFAFA;
   margin-top: 32px;
   margin-bottom: 16px;
+  padding-top: 32px;
 }
 
 .gallery__title {
@@ -415,15 +437,42 @@
   font-family: "AvenirBold";
 }
 
-.gallery__image {
+.gallery__photos {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-top: 0;
   width: 100%;
   padding: 0 5vw;
-  margin-bottom: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
+.gallery__image {
+  margin-bottom: 16px;
+  width: 90vw;
+  height: 51vw;
+  -webkit-filter: grayscale(70%);
+          filter: grayscale(70%);
+  -webkit-transition: -webkit-filter 1s, -webkit-transform 0.5s;
+  transition: -webkit-filter 1s, -webkit-transform 0.5s;
+  transition: filter 1s, transform 0.5s;
+  transition: filter 1s, transform 0.5s, -webkit-filter 1s, -webkit-transform 0.5s;
+}
+
+.gallery__image:hover {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+}
+
+/*Stylings for the tablet version
+content block for the 'medium' mixin in the partials/__breakpoints*/
 @media only screen and (min-width: 768px) {
   .hero {
     height: 52.08vw;
@@ -480,12 +529,16 @@
   .about__text-paragraph:not(:last-child) {
     margin-right: 3.12vw;
   }
+  .gallery {
+    padding-top: 48px;
+  }
   .gallery__title {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
+    margin-bottom: 52px;
   }
   .gallery__photos {
     -webkit-box-sizing: border-box;
@@ -493,9 +546,10 @@
     margin-top: 0;
     width: 100%;
     padding: 0 3.12vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
@@ -506,10 +560,12 @@
     padding: 0;
     width: 29.17vw;
     height: 16.41vw;
-    margin: 1.56vw 0;
+    margin: 12px 0;
   }
 }
 
+/*Stylings of the desktop version
+content block for the 'huge' mixin in the partials/__breakpoints*/
 @media only screen and (min-width: 1440px) {
   .hero {
     height: 46.53vw;
@@ -581,6 +637,7 @@
     margin-right: 2.78vw;
   }
   .gallery {
+    padding-top: 48px;
     margin-bottom: 40px;
   }
   .gallery__title {
@@ -590,7 +647,7 @@
     width: 100%;
     padding: 0 12.5vw;
     padding-top: 48px;
-    margin-bottom: 64px;
+    margin-bottom: 52px;
   }
   .gallery__photos {
     -webkit-box-sizing: border-box;
@@ -598,9 +655,10 @@
     margin-top: 0;
     width: 100%;
     padding: 0 12.5vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -611,11 +669,96 @@
     padding: 0;
     width: 23.89vw;
     height: 13.4vw;
-    margin: 0.83vw 0;
+    margin: 12px 0;
   }
 }
 
-html, body {
+/*This stylesheet contains the font-sizes for all the elements*/
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h2 {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+h3,
+h4,
+p,
+li {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+h5 {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h4,
+  p,
+  li {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  h5 {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .footer__contact-info {
+    line-height: 20px;
+  }
+  .hero__text {
+    font-size: 60px;
+    line-height: 68px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h4,
+  p,
+  li {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  h5 {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .footer__contact-info {
+    line-height: 20px;
+  }
+}
+
+html,
+body {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -623,7 +766,9 @@ html, body {
   height: 100vh;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }

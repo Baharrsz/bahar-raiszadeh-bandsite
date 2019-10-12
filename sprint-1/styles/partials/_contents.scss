@@ -1,4 +1,7 @@
-//Settings for positioning all of the elements
+/*This stylesheet includes the stylings for the main content of the page,
+including hero, the 'about' section and photo gallery*/
+
+//Recurrent settings for positioning elements
 @mixin position-element($padding) {
   box-sizing: border-box;
   margin-top: 0;
@@ -10,20 +13,34 @@
   box-sizing: border-box;
 }
 
+/*Stylings for the mobile version
+content block for the 'small' mixin in the partials/__breakpoints*/
 .hero {
   width: 100vw;
-  height: 57.19vw; //183/320
+  height: 57.19vw; //183px/320px
   background-image: url(../assets/images/hero-image.jpg);
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  z-index: 0;
+  position: relative;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
 
   &__text {
     color: $white;
     font-family: "AvenirBold";
     text-align: center;
     padding-left: 5vw;
-    // font-size: ;
+    z-index: 2;
   }
 }
 
@@ -70,6 +87,7 @@
   background-color: $alabaster;
   margin-top: 32px;
   margin-bottom: 16px;
+  padding-top: 32px;
 
   &__title {
     @include position-element(5vw);
@@ -77,15 +95,31 @@
     font-family: "AvenirBold";
   }
 
-  &__image {
+  &__photos {
     @include position-element(5vw);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__image {
     margin-bottom: 16px;
+    width: 90vw; //288px/320px
+    height: 51vw; //162px/32px
+    filter: grayscale(70%);
+    transition: filter 1s, transform 0.5s;
+
+    &:hover {
+      filter: grayscale(0%);
+      transform: scale(1.05, 1.05);
+    }
   }
 }
 
+/*Stylings for the tablet version
+content block for the 'medium' mixin in the partials/__breakpoints*/
 @include medium {
   .hero {
-    height: 52.08vw; //400/768
+    height: 52.08vw; //400px/768px
 
     &__text {
       padding-left: 3.12vw;
@@ -125,32 +159,37 @@
   }
 
   .gallery {
+    padding-top: 48px;
+
     &__title {
       @include position-element(3.12vw);
+      margin-bottom: 52px; //This margin plus the images' margin make the 64px margin required
     }
 
     &__photos {
       @include position-element(3.12vw);
-      display: flex;
+      flex-direction: row;
       justify-content: space-evenly;
       flex-wrap: wrap;
     }
 
     &__image {
       padding: 0;
-      width: 29.17vw;
-      height: 16.41vw;
-      margin: 1.56vw 0;
+      width: 29.17vw; //224px/768px
+      height: 16.41vw; //126px/768px
+      margin: 12px 0;
     }
   }
 }
 
+/*Stylings of the desktop version
+content block for the 'huge' mixin in the partials/__breakpoints*/
 @include huge {
   .hero {
-    height: 46.53vw; //670/1440
+    height: 46.53vw; //670px/1440px
 
     &__text {
-      padding-left: 12.5vw; //180/1440
+      padding-left: 12.5vw; //180px/1440px
     }
   }
 
@@ -164,7 +203,7 @@
 
     &__image {
       @include position-element(18.89vw);
-      height: 31.25vw; //450/1440
+      height: 31.25vw; //450px/1440px
       margin-bottom: 48px;
     }
 
@@ -190,36 +229,37 @@
 
       &-paragraph {
         box-sizing: content-box;
-        width: 420px; //420/1440
+        width: 420px; //420px/1440px
 
         &:not(:last-child) {
-          margin-right: 2.78vw; //40/1440
+          margin-right: 2.78vw; //40px/1440px
         }
       }
     }
   }
 
   .gallery {
+    padding-top: 48px;
     margin-bottom: 40px;
 
     &__title {
       @include position-element(12.5vw);
       padding-top: 48px;
-      margin-bottom: 64px;
+      margin-bottom: 52px; //This margin plus the images' margin make the 64px margin required
     }
 
     &__photos {
       @include position-element(12.5vw);
-      display: flex;
+      flex-direction: row;
       justify-content: space-between;
       flex-wrap: wrap;
     }
 
     &__image {
       padding: 0;
-      width: 23.89vw;
-      height: 13.4vw;
-      margin: 0.83vw 0;
+      width: 23.89vw; //344px/1440px
+      height: 13.4vw; //193px/1440px
+      margin: 12px 0;
     }
   }
 }

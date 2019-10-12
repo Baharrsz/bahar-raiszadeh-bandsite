@@ -1,3 +1,4 @@
+//Tablet version
 .footer {
   background-color: $black;
   color: $mercury;
@@ -39,6 +40,9 @@
       &--with-margin {
         margin-top: 10px;
       }
+      &-mail {
+        color: $mercury;
+      }
     }
   }
 
@@ -51,7 +55,9 @@
     }
   }
 }
+//Mobile version
 
+//Tablet version
 @include medium {
   .footer {
     padding: 40px 3.12vw;
@@ -96,7 +102,9 @@
     }
   }
 }
+//Tablet version
 
+//Desktop version
 @include huge {
   .footer {
     padding: 48px 12.5vw;
@@ -152,3 +160,4 @@
     }
   }
 }
+//Desktop version
