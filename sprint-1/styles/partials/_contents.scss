@@ -1,14 +1,6 @@
 /*This stylesheet includes the stylings for the main content of the page,
 including hero, the 'about' section and photo gallery*/
 
-//Recurrent settings for positioning elements
-@mixin position-element($padding) {
-  box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 $padding;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -47,38 +39,43 @@ content block for the 'small' mixin in the partials/__breakpoints*/
 .about {
   width: 100vw;
   margin-top: 32px;
+  padding: 0 5vw; //5vw=16px/320px
+
+  & > * {
+    //Selecting all parts of the 'about' section
+    margin-top: 0;
+    width: 90vw;
+  }
 
   &__title {
-    @include position-element(5vw);
     margin-bottom: 24px;
     font-family: "AvenirBold";
   }
 
   &__image {
-    @include position-element(5vw);
+    height: 67vw;
     margin-bottom: 24px;
+    background-image: url(../assets/images/about-image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   &__quote {
-    @include position-element(5vw);
     margin-bottom: 32px;
     font-family: "AvenirDemiBold";
 
     &-name {
-      @include position-element(5vw);
       margin-bottom: 40px;
       font-family: "AvenirDemiBold";
     }
   }
 
   &__subtitle {
-    @include position-element(5vw);
     margin-bottom: 24px;
     font-family: "AvenirDemiBold";
   }
 
   &__text {
-    @include position-element(5vw);
     margin-bottom: 40px;
   }
 }
@@ -88,15 +85,20 @@ content block for the 'small' mixin in the partials/__breakpoints*/
   margin-top: 32px;
   margin-bottom: 16px;
   padding-top: 32px;
+  padding: 0 5vw; //5vw=16px/320px
+
+  & > * {
+    //Selecting all parts of gallery
+    margin-top: 0;
+    width: 90vw;
+  }
 
   &__title {
-    @include position-element(5vw);
     margin-bottom: 24px;
     font-family: "AvenirBold";
   }
 
   &__photos {
-    @include position-element(5vw);
     display: flex;
     flex-direction: column;
   }
@@ -122,34 +124,24 @@ content block for the 'medium' mixin in the partials/__breakpoints*/
     height: 52.08vw; //400px/768px
 
     &__text {
-      padding-left: 3.12vw;
+      padding-left: 3.12vw; //3.12vw=24px/768px
     }
   }
 
   .about {
-    &__title {
-      @include position-element(3.12vw);
+    padding: 0 3.12vw;
+
+    & > * {
+      // Selects all parts of the 'about' section
+      width: 93.76vw; //100-2*3.12
     }
 
     &__image {
-      @include position-element(3.12vw);
       height: 47.13vw;
-    }
-
-    &__quote {
-      @include position-element(3.12vw);
-
-      &-name {
-        @include position-element(3.12vw);
-      }
-    }
-
-    &__subtitle {
-      @include position-element(3.12vw);
+      background-position: center 80%;
     }
 
     &__text {
-      @include position-element(3.12vw);
       display: flex;
 
       &-paragraph:not(:last-child) {
@@ -159,15 +151,17 @@ content block for the 'medium' mixin in the partials/__breakpoints*/
   }
 
   .gallery {
-    padding-top: 48px;
+    padding: 48px 3.12vw 0 3.12vw; //3.12vw=24px/768px
+
+    & > * {
+      width: 93.76vw; //Selecting all parts of gallery
+    }
 
     &__title {
-      @include position-element(3.12vw);
       margin-bottom: 52px; //This margin plus the images' margin make the 64px margin required
     }
 
     &__photos {
-      @include position-element(3.12vw);
       flex-direction: row;
       justify-content: space-evenly;
       flex-wrap: wrap;
@@ -195,35 +189,41 @@ content block for the 'huge' mixin in the partials/__breakpoints*/
 
   .about {
     margin-top: 48px;
+    padding: 0 12.5vw; //12.5vw=180px/1440px
+
+    & > * {
+      // Selects all parts of the 'about' section
+      width: 75vw; //100-12.5*2
+    }
 
     &__title {
-      @include position-element(12.5vw);
       margin-bottom: 48px;
     }
 
     &__image {
-      @include position-element(18.89vw);
+      padding: 0 6.39vw; //6.39vw=(68+24)/1440
       height: 31.25vw; //450px/1440px
       margin-bottom: 48px;
+      background-position: center 70%;
     }
 
     &__quote {
-      @include position-element(18.89vw);
+      padding: 0 6.39vw;
       margin-bottom: 40px;
 
       &-name {
-        @include position-element(18.89vw);
+        padding: 0 6.39vw;
         margin-bottom: 56px;
       }
     }
 
     &__subtitle {
-      @include position-element(18.89vw);
+      padding: 0 6.39vw;
       margin-bottom: 32px;
     }
 
     &__text {
-      @include position-element(18.89vw);
+      padding: 0 6.39vw;
       margin-bottom: 48px;
       display: flex;
 
@@ -241,15 +241,19 @@ content block for the 'huge' mixin in the partials/__breakpoints*/
   .gallery {
     padding-top: 48px;
     margin-bottom: 40px;
+    padding: 0 12.5vw; //12.5vw=180px/1440px
+
+    & > * {
+      // Selects all parts of gallery
+      width: 75vw; //100-12.5*2
+    }
 
     &__title {
-      @include position-element(12.5vw);
       padding-top: 48px;
       margin-bottom: 52px; //This margin plus the images' margin make the 64px margin required
     }
 
     &__photos {
-      @include position-element(12.5vw);
       flex-direction: row;
       justify-content: space-between;
       flex-wrap: wrap;

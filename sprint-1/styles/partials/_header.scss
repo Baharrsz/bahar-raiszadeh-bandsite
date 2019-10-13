@@ -7,12 +7,13 @@
   align-items: center;
   height: 80px;
   width: 100vw;
-
+  
   &__logo {
     flex: 67%;
     margin-top: 15px;
     margin-bottom: 16px;
   }
+
   &__nav {
     flex: 33%;
     width: 100%;
@@ -22,24 +23,18 @@
     list-style-type: none;
     display: flex;
     align-items: center;
-
     &-item {
       width: 50%;
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      //   position: relative; //here
-
       &:hover {
         color: $white;
         border-bottom: 2px solid $white;
         font-family: "AvenirDemiBold";
-
         & .header__nav-dropdown {
-          //here
-          display: block; //here
-        } //here
+          display: block;
       }
     }
     &-link {
@@ -48,12 +43,10 @@
     }
 
     &-dropdown {
-      //here
-      //here
-      display: none; //here
-      position: fixed; //here
-      top: 80px; //here
-      background-color: $black; //here
+      display: none;
+      position: fixed;
+      top: 80px;
+      background-color: $black; 
       z-index: 1;
       padding: 0;
       width: 50%;
@@ -63,13 +56,12 @@
         padding: 10px 0;
         border-bottom: 1px solid $silver;
         text-align: center;
-
         &-link {
           text-decoration: none;
-          color: $mercury; //here
+          color: $mercury;
         }
       }
-    } //here
+    }
   }
 }
 //Mobile version
@@ -89,7 +81,6 @@
     &__nav {
       margin: 0;
       justify-content: flex-start;
-
       &-item {
         width: 15%;
         height: 80px;

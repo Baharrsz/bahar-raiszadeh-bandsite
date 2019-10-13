@@ -399,63 +399,43 @@ content block for the 'small' mixin in the partials/__breakpoints*/
 .about {
   width: 100vw;
   margin-top: 32px;
+  padding: 0 5vw;
+}
+
+.about > * {
+  margin-top: 0;
+  width: 90vw;
 }
 
 .about__title {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
   margin-bottom: 24px;
   font-family: "AvenirBold";
 }
 
 .about__image {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
+  height: 67vw;
   margin-bottom: 24px;
+  background-image: url(../assets/images/about-image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .about__quote {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
   margin-bottom: 32px;
   font-family: "AvenirDemiBold";
 }
 
 .about__quote-name {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
   margin-bottom: 40px;
   font-family: "AvenirDemiBold";
 }
 
 .about__subtitle {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
   margin-bottom: 24px;
   font-family: "AvenirDemiBold";
 }
 
 .about__text {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
   margin-bottom: 40px;
 }
 
@@ -464,24 +444,20 @@ content block for the 'small' mixin in the partials/__breakpoints*/
   margin-top: 32px;
   margin-bottom: 16px;
   padding-top: 32px;
+  padding: 0 5vw;
+}
+
+.gallery > * {
+  margin-top: 0;
+  width: 90vw;
 }
 
 .gallery__title {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
   margin-bottom: 24px;
   font-family: "AvenirBold";
 }
 
 .gallery__photos {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin-top: 0;
-  width: 100%;
-  padding: 0 5vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -519,48 +495,17 @@ content block for the 'medium' mixin in the partials/__breakpoints*/
   .hero__text {
     padding-left: 3.12vw;
   }
-  .about__title {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
+  .about {
     padding: 0 3.12vw;
+  }
+  .about > * {
+    width: 93.76vw;
   }
   .about__image {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 3.12vw;
     height: 47.13vw;
-  }
-  .about__quote {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 3.12vw;
-  }
-  .about__quote-name {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 3.12vw;
-  }
-  .about__subtitle {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 3.12vw;
+    background-position: center 80%;
   }
   .about__text {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 3.12vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -569,22 +514,15 @@ content block for the 'medium' mixin in the partials/__breakpoints*/
     margin-right: 3.12vw;
   }
   .gallery {
-    padding-top: 48px;
+    padding: 48px 3.12vw 0 3.12vw;
+  }
+  .gallery > * {
+    width: 93.76vw;
   }
   .gallery__title {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 3.12vw;
     margin-bottom: 52px;
   }
   .gallery__photos {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 3.12vw;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -614,54 +552,34 @@ content block for the 'huge' mixin in the partials/__breakpoints*/
   }
   .about {
     margin-top: 48px;
+    padding: 0 12.5vw;
+  }
+  .about > * {
+    width: 75vw;
   }
   .about__title {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 12.5vw;
     margin-bottom: 48px;
   }
   .about__image {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 18.89vw;
+    padding: 0 6.39vw;
     height: 31.25vw;
     margin-bottom: 48px;
+    background-position: center 70%;
   }
   .about__quote {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 18.89vw;
+    padding: 0 6.39vw;
     margin-bottom: 40px;
   }
   .about__quote-name {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 18.89vw;
+    padding: 0 6.39vw;
     margin-bottom: 56px;
   }
   .about__subtitle {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 18.89vw;
+    padding: 0 6.39vw;
     margin-bottom: 32px;
   }
   .about__text {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 18.89vw;
+    padding: 0 6.39vw;
     margin-bottom: 48px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -678,22 +596,16 @@ content block for the 'huge' mixin in the partials/__breakpoints*/
   .gallery {
     padding-top: 48px;
     margin-bottom: 40px;
+    padding: 0 12.5vw;
+  }
+  .gallery > * {
+    width: 75vw;
   }
   .gallery__title {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 12.5vw;
     padding-top: 48px;
     margin-bottom: 52px;
   }
   .gallery__photos {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0;
-    width: 100%;
-    padding: 0 12.5vw;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
