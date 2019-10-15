@@ -1,0 +1,21 @@
+@import "./partials/breakpoints";
+@import "./partials/colors";
+@import "./partials/fonts";
+@import "./partials/header";
+@import "./partials/footer";
+@import "./partials/biography-contents";
+@import "./partials/font-sizing";
+
+html,
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "AvenirRegular";
+  height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

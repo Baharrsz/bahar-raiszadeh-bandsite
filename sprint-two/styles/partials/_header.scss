@@ -1,0 +1,96 @@
+//Mobile version
+.header {
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100vw;
+
+  &__logo {
+    flex: 67%;
+    margin-top: 15px;
+    margin-bottom: 16px;
+  }
+
+  &__nav {
+    flex: 33%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    &-item {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      &:hover {
+        color: $white;
+        border-bottom: 2px solid $white;
+        font-family: "AvenirDemiBold";
+      }
+    }
+    &-link {
+      color: $mercury;
+      text-decoration: none;
+    }
+  }
+}
+//Mobile version
+
+//Tablet version
+@include medium {
+  .header {
+    padding: 0 3.12vw;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    &__logo {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__nav {
+      margin: 0;
+      justify-content: flex-start;
+      &-item {
+        width: 15%;
+        height: 80px;
+        margin-left: 15%;
+        align-items: center;
+      }
+    }
+  }
+}
+//Tablet version
+
+//Desktop version
+@include huge {
+  .header {
+    padding: 0 12.5vw;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    &__logo {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__nav {
+      margin: 0;
+      justify-content: flex-start;
+
+      &-item {
+        width: 5.55vw;
+        margin-left: 3.89vw;
+        align-items: center;
+      }
+    }
+  }
+}
+//Desktop version
