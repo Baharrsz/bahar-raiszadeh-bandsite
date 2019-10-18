@@ -732,7 +732,6 @@ h5,
 .shows-tours {
   width: 100vw;
   height: 3000px;
-  position: relative;
 }
 
 .shows-tours * {
@@ -745,10 +744,11 @@ h5,
 }
 
 .shows-tours__table {
-  position: absolute;
+  position: relative;
 }
 
-.shows-tours__table--heads {
+.shows-tours__table-section--label {
+  position: absolute;
   top: 41px;
   font-size: 12px;
   line-height: 20px;
@@ -756,7 +756,8 @@ h5,
   color: #AFAFAF;
 }
 
-.shows-tours__table--contents {
+.shows-tours__table-section--content {
+  position: absolute;
   top: 77px;
   font-size: 13px;
   line-height: 18px;
@@ -775,15 +776,15 @@ h5,
           justify-content: flex-start;
 }
 
-.shows-tours__table-heads-cell {
+.shows-tours__table-label-cell {
   margin: 29px 0;
 }
 
-.shows-tours__table-contents-cell {
+.shows-tours__table-content-cell {
   margin: 30px 0;
 }
 
-.shows-tours__table-contents-btn {
+.shows-tours__table-content-cell--btn {
   position: relative;
   top: -40px;
 }

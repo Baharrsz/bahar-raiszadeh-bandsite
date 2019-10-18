@@ -5,46 +5,56 @@
  *
  * The function wirtes the information of the dataTable into a table in the document
  */
-function createHeadsTable(table, dataArray) {
+
+function createTable(table, dataArray) {
+  let labelrows = document.createElement("div");
+  labelrows.classList.add("shows-tours__table-section--label");
+  table.appendChild(labelrows);
   for (tour of dataArray) {
-    let row = table.insertRow();
+    let row = document.createElement("div");
     row.classList.add(
       "shows-tours__table-row",
       "shows-tours__table-row--label"
     );
-    for (key in dataArray[0]) {
-      let cell = row.insertCell();
-      let text = document.createTextNode(key);
-      cell.appendChild(text);
-      cell.classList.add("shows-tours__table-heads-cell");
-      let btn = document.createElement("button");
+    labelrows.appendChild(row);
+
+    for (key in tour) {
+      let cell = document.createElement("div");
+      cell.classList.add("shows-tours__table-label-cell");
+      cell.innerText = key;
+      row.appendChild(cell);
     }
+
     let btn = document.createElement("button");
     btn.innerHTML = "BUY TICKETS";
-    btn.classList.add("shows-tours__table-heads-cell");
+    btn.classList.add("shows-tours__table-label-cell");
     btn.style.visibility = "hidden";
     row.appendChild(btn);
   }
-}
 
-function createContentsTable(table, dataArray) {
+  let contentrows = document.createElement("div");
+  contentrows.classList.add("shows-tours__table-section--content");
+  table.appendChild(contentrows);
   for (tour of dataArray) {
-    row = table.insertRow();
+    let row = document.createElement("div");
     row.classList.add(
       "shows-tours__table-row",
       "shows-tours__table-row--content"
     );
+    contentrows.appendChild(row);
+
     for (key in tour) {
-      cell = row.insertCell();
-      text = document.createTextNode(tour[key]);
-      cell.appendChild(text);
-      cell.classList.add("shows-tours__table-contents-cell");
+      let cell = document.createElement("div");
+      cell.classList.add("shows-tours__table-content-cell");
+      cell.innerText = tour[key];
+      row.appendChild(cell);
     }
+
     let btn = document.createElement("button");
     btn.innerHTML = "BUY TICKETS";
     btn.classList.add(
-      "shows-tours__table-contents-cell",
-      "shows-tours__table-contents-btn"
+      "shows-tours__table-content-cell",
+      "shows-tours__table-content-cell--btn"
     );
     row.appendChild(btn);
   }
@@ -79,7 +89,5 @@ let tourInfo = [
   { DATE: "Wed Aug 11 2019", VENUE: "Pres Club", LOCATION: "San Fancisco, CA" }
 ];
 
-let table = document.querySelector(".shows-tours__table--heads");
-createHeadsTable(table, tourInfo);
-table = document.querySelector(".shows-tours__table--contents");
-createContentsTable(table, tourInfo);
+let table = document.querySelector(".shows-tours__table");
+createTable(table, tourInfo);
