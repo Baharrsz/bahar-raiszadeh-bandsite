@@ -85,35 +85,9 @@
   font-family: "AvenirDemiBold";
 }
 
-.header__nav-item:hover .header__nav-dropdown {
-  display: block;
-}
-
 .header__nav-link {
   color: #E1E1E1;
   text-decoration: none;
-}
-
-.header__nav-dropdown {
-  display: none;
-  position: fixed;
-  top: 80px;
-  background-color: #323232;
-  z-index: 1;
-  padding: 0;
-  width: 50%;
-}
-
-.header__nav-dropdown-item {
-  list-style-type: none;
-  padding: 10px 0;
-  border-bottom: 1px solid #AFAFAF;
-  text-align: center;
-}
-
-.header__nav-dropdown-item-link {
-  text-decoration: none;
-  color: #E1E1E1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -145,12 +119,6 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .header__nav-dropdown {
-    width: auto;
-  }
-  .header__nav-dropdown-item {
-    padding: 10px 2vw;
-  }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -180,12 +148,6 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-  }
-  .header__nav-dropdown {
-    width: auto;
-  }
-  .header__nav-dropdown-item {
-    padding: 10px 2vw;
   }
 }
 
@@ -638,12 +600,14 @@ h2 {
 h3,
 h4,
 p,
-li {
+li,
+shows-tours__table--contents {
   font-size: 13px;
   line-height: 18px;
 }
 
-h5 {
+h5,
+.shows-tours__table--heads {
   font-size: 12px;
   line-height: 20px;
 }
@@ -674,7 +638,8 @@ h5 {
   .footer__contact-info {
     line-height: 20px;
   }
-  .hero__text {
+  .hero__text,
+  .shows-hero__text {
     font-size: 60px;
     line-height: 68px;
   }
@@ -706,6 +671,121 @@ h5 {
   .footer__contact-info {
     line-height: 20px;
   }
+  .hero__text,
+  .shows-hero__text {
+    font-size: 60px;
+    line-height: 68px;
+  }
+}
+
+.shows-hero {
+  width: 100vw;
+  height: 147.5vw;
+  background-image: url(../assets/images/shows-hero-image.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  z-index: 0;
+  position: relative;
+}
+
+.shows-hero__overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.shows-hero__text {
+  color: #FFF;
+  font-family: "AvenirBold";
+  padding-left: 5vw;
+  z-index: 2;
+  margin: 0;
+}
+
+.shows-hero__subtitle {
+  padding-top: 20vw;
+  padding-bottom: 10vw;
+}
+
+.shows-hero__song {
+  width: 90vw;
+  height: 35vw;
+  margin-top: 20vw;
+  margin-left: 5vw;
+  border: none;
+  z-index: 2;
+}
+
+.shows-tours {
+  width: 100vw;
+  height: 3000px;
+  position: relative;
+}
+
+.shows-tours * {
+  margin: 0;
+  padding: 0;
+}
+
+.shows-tours__title {
+  margin-top: 32px;
+}
+
+.shows-tours__table {
+  position: absolute;
+}
+
+.shows-tours__table--heads {
+  top: 41px;
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "AvenirBold";
+  color: #AFAFAF;
+}
+
+.shows-tours__table--contents {
+  top: 77px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.shows-tours__table-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.shows-tours__table-heads-cell {
+  margin: 29px 0;
+}
+
+.shows-tours__table-contents-cell {
+  margin: 30px 0;
+}
+
+.shows-tours__table-contents-btn {
+  position: relative;
+  top: -40px;
 }
 
 html,

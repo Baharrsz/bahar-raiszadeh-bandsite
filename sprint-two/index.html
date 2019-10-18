@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles/main.css" />
-    <title>BANDSITE</title>
+    <title>BANDSITE - Biography</title>
   </head>
 
   <body>
@@ -129,6 +129,31 @@
         </div>
       </section>
       <!-- Photo Gallery-->
+
+      <!-- Comments-->
+      <section class="comments">
+        <h1 class="comments__title">Join the Conversation</h1>
+        <form class="comments__new">
+          <div class="comments__new-name">
+            <label class="comments__new-name-label"></label>
+            <input type="text" name="name" placeholder="name" />
+          </div>
+          <div class="comments__new-comment">
+            <label class="comments__new-comment-label"></label>
+            <input type="text" name="comment" placeholder="comment" />
+          </div>
+          <button
+            class="comments__new-btn btn"
+            name="comment-button"
+            type="submit"
+          >
+            COMMENT
+          </button>
+        </form>
+
+        <div class="comments__past-comments"></div>
+      </section>
+      <!-- Comments-->
     </main>
 
     <footer class="footer">
@@ -243,5 +268,7 @@
         <span class="footer__copyright-new-line"> All Rights Reserved</span>
       </p>
     </footer>
+
+    <script src="./scripts/comments.js"></script>
   </body>
 </html>
