@@ -28,7 +28,6 @@ for (let i = 0; i <= 2; i++) {
   var avatar = document.createElement("img");
   avatar.classList.add("comments__past-comments-avatar", "comments__avatar");
   avatar.setAttribute("src", comments[i].avatar);
-
   pastComments.appendChild(avatar);
 
   var id = document.createElement("div"); //id contains the name and the date of a comment

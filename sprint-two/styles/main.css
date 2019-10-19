@@ -817,6 +817,7 @@ label {
   height: 48px;
   border: 1px solid #E1E1E1;
   border-radius: 4px;
+  background-color: #FAFAFA;
 }
 
 .comments__new-name-input:focus, .comments__new-comment-input:focus {
