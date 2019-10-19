@@ -54,7 +54,8 @@ function createTable(table, dataArray) {
     btn.innerHTML = "BUY TICKETS";
     btn.classList.add(
       "shows-tours__table-content-cell",
-      "shows-tours__table-content-cell--btn"
+      "shows-tours__table-content-cell--btn",
+      "btn"
     );
     row.appendChild(btn);
   }
@@ -86,7 +87,7 @@ let tourInfo = [
     VENUE: "Moscow Center",
     LOCATION: "San Fancisco, CA"
   },
-  { DATE: "Wed Aug 11 2019", VENUE: "Pres Club", LOCATION: "San Fancisco, CA" }
+  { DATE: "Wed Aug 11 2019", VENUE: "Press Club", LOCATION: "San Fancisco, CA" }
 ];
 
 let table = document.querySelector(".shows-tours__table");

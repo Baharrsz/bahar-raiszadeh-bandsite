@@ -133,26 +133,48 @@
       <!-- Comments-->
       <section class="comments">
         <h1 class="comments__title">Join the Conversation</h1>
+        <!--New Comments-->
         <form class="comments__new">
-          <div class="comments__new-name">
-            <label class="comments__new-name-label"></label>
-            <input type="text" name="name" placeholder="name" />
+          <img
+            class="comments__avatar"
+            src="./assets/images/Mohan-muruge.jpg"
+            alt=""
+          />
+          <div class="comments__user-input">
+            <div class="comments__new-name">
+              <label class="comments__new-name-label">NAME</label>
+              <input
+                class="comments__new-name-input"
+                type="text"
+                name="name"
+                placeholder="name"
+              />
+            </div>
+            <div class="comments__new-comment">
+              <label class="comments__new-comment-label">COMMENT</label>
+              <input
+                class="comments__new-comment-input"
+                type="text"
+                name="comment"
+                placeholder="Add a new comment"
+              />
+            </div>
+            <button
+              class="comments__new-btn btn"
+              name="comment-button"
+              type="submit"
+            >
+              COMMENT
+            </button>
           </div>
-          <div class="comments__new-comment">
-            <label class="comments__new-comment-label"></label>
-            <input type="text" name="comment" placeholder="comment" />
-          </div>
-          <button
-            class="comments__new-btn btn"
-            name="comment-button"
-            type="submit"
-          >
-            COMMENT
-          </button>
         </form>
+        <!--New Comments-->
 
+        <!--Past Comments, filled by javascript-->
         <div class="comments__past-comments"></div>
       </section>
+      <!--Past Comments, filled by javascript-->
+
       <!-- Comments-->
     </main>
 

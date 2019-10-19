@@ -23,10 +23,12 @@ shows-tours__table--contents {
 }
 
 h5,
-.shows-tours__table--heads {
+label {
   //LABELS
   font-size: 12px;
   line-height: 20px;
+  font-family: "AvenirBold";
+  color: $silver;
 }
 
 @include medium {

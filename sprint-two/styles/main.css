@@ -607,9 +607,11 @@ shows-tours__table--contents {
 }
 
 h5,
-.shows-tours__table--heads {
+label {
   font-size: 12px;
   line-height: 20px;
+  font-family: "AvenirBold";
+  color: #AFAFAF;
 }
 
 @media only screen and (min-width: 768px) {
@@ -789,6 +791,49 @@ h5,
   top: -40px;
 }
 
+.comments {
+  width: 100vw;
+  padding: 0 5vw;
+}
+
+.comments__new {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.comments__new-name, .comments__new-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.comments__new-name-input, .comments__new-comment-input {
+  width: 71.25vw;
+  height: 48px;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px;
+}
+
+.comments__new-name-input:focus, .comments__new-comment-input:focus {
+  outline: none;
+  border: 2px solid #323232;
+}
+
+.comments__new-comment-input {
+  height: 96px;
+}
+
+.comments__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
 html,
 body {
   margin: 0;
@@ -803,5 +848,10 @@ body {
 *:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+}
+
+.btn {
+  background-color: #323232;
+  color: #FFF;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,35 @@
+.comments {
+  width: 100vw;
+  padding: 0 5vw; //5vw=16px/320px
+
+  &__new {
+    display: flex;
+
+    &-name,
+    &-comment {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-name-input {
+      width: 71.25vw; //228px/320px
+      height: 48px;
+      border: 1px solid $mercury;
+      border-radius: 4px;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $black;
+      }
+    }
+    &-comment-input {
+      @extend .comments__new-name-input;
+      height: 96px;
+    }
+  }
+  &__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+}

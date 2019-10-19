@@ -4,8 +4,9 @@
 @import "./partials/header";
 @import "./partials/footer";
 @import "./partials/biography-contents";
-@import "./partials/font-sizing";
+@import "./partials/typography";
 @import "./partials/shows-contents";
+@import "./partials/comments";
 
 html,
 body {
@@ -19,4 +20,8 @@ body {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+.btn {
+  background-color: $black;
+  color: $white;
 }
