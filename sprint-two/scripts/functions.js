@@ -87,20 +87,3 @@ function tableCreator(tableContainer, dataArray, labelOrContent, tableId) {
     elementTextChanger(cells, dataArray[item]);
   }
 }
-
-// htmlStructure = {
-//   image: ["img", ""],
-//   part: ["div", ""],
-//   subpart: ["div", "part"]
-// };
-
-// text = {
-//   image: "photo",
-//   subpart: "empty"
-// };
-
-// let tags = elementCreator(".test", htmlStructure, "test__", "test-id");
-// elementTextChanger(tags, text);
-// console.log(typeof tags.image.classList[0]);
-
-//

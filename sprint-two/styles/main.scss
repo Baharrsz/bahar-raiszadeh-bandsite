@@ -24,4 +24,12 @@ body {
 .btn {
   background-color: $black;
   color: $white;
+  font-family: "AvenirDemiBold";
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+
+  &:hover {
+    background-color: black;
+  }
 }

@@ -27,11 +27,14 @@ comments[2] = {
   avatar: "./assets/images/user3.jpg"
 };
 
-//How different parts of the comments section are structures in the html file.
+//htmlStructure specifies how different parts of the comments section are structured in the html file.
 //container-name: [tag-name, parent-container]
+//To be used as the input of elementCreator
 let htmlStructure = {
-  avatar: ["img"],
-  body: ["div"],
+  comment: ["div"],
+  avatarbox: ["div", "comment"],
+  avatar: ["img", "avatarbox"],
+  body: ["div", "comment"],
   title: ["div", "body"],
   userName: ["div", "title"],
   date: ["div", "title"],
@@ -42,9 +45,9 @@ let htmlStructure = {
 let tags = [];
 for (index = 0; index <= 2; index++) {
   tags[index] = elementCreator(
-    ".comments__past-comments",
+    ".comments__past",
     htmlStructure,
-    "comments__past-comments-"
+    "comments__past-"
   );
 }
 

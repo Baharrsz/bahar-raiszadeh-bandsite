@@ -614,6 +614,16 @@ label {
   color: #AFAFAF;
 }
 
+.comments {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.comments__title {
+  font-size: 24px;
+  line-height: 32px;
+}
+
 @media only screen and (min-width: 768px) {
   h1 {
     font-size: 36px;
@@ -644,6 +654,14 @@ label {
   .shows-hero__text {
     font-size: 60px;
     line-height: 68px;
+  }
+  .comments {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .comments__title {
+    font-size: 36px;
+    line-height: 44px;
   }
 }
 
@@ -677,6 +695,14 @@ label {
   .shows-hero__text {
     font-size: 60px;
     line-height: 68px;
+  }
+  .comments {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .comments__title {
+    font-size: 36px;
+    line-height: 44px;
   }
 }
 
@@ -796,13 +822,30 @@ label {
   padding: 0 5vw;
 }
 
+.comments__title {
+  font-family: "AvenirBold";
+  margin: 32px 0 40px 0;
+}
+
 .comments__new {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-bottom: 1px solid #E1E1E1;
 }
 
 .comments__new-name, .comments__new-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 20px;
+}
+
+.comments__new-user-input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -818,6 +861,9 @@ label {
   border: 1px solid #E1E1E1;
   border-radius: 4px;
   background-color: #FAFAFA;
+  padding-left: 1.11vw;
+  margin-top: 8px;
+  margin-bottom: 24px;
 }
 
 .comments__new-name-input:focus, .comments__new-comment-input:focus {
@@ -829,10 +875,135 @@ label {
   height: 96px;
 }
 
-.comments__avatar {
+.comments__new-btn {
+  width: 71.25vw;
+  height: 48px;
+  margin: 0 0 32px 20px;
+}
+
+.comments__new-avatar, .comments__past-avatarbox-avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  margin-top: 28px;
+}
+
+.comments__past {
+  margin-bottom: 40px;
+}
+
+.comments__past-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 24px 0;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+.comments__past-comment-avatarbox {
+  -webkit-box-flex: 18.75;
+      -ms-flex: 18.75;
+          flex: 18.75;
+  text-align: end;
+}
+
+.comments__past-comment-body {
+  -webkit-box-flex: 81.25;
+      -ms-flex: 81.25;
+          flex: 81.25;
+  padding-left: 16px;
+}
+
+.comments__past-avatarbox-avatar {
+  background-color: #E1E1E1;
+  -webkit-box-flex: 18.75;
+      -ms-flex: 18.75;
+          flex: 18.75;
+  margin-top: 0;
+}
+
+.comments__past-title-userName {
+  font-family: "AvenirDemiBold";
+}
+
+.comments__past-title-date {
+  color: #AFAFAF;
+  margin-left: 12px;
+}
+
+.comments__past-body-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .comments {
+    padding: 0 16.15vw;
+  }
+  .comments__new-name-input, .comments__new-comment-input {
+    width: 58.85vw;
+  }
+  .comments__new-btn {
+    width: 160px;
+    height: 48px;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .comments__past-comment-avatar {
+    -webkit-box-flex: 9;
+        -ms-flex: 9;
+            flex: 9;
+  }
+  .comments__past-comment-body {
+    -webkit-box-flex: 91;
+        -ms-flex: 91;
+            flex: 91;
+  }
+  .comments__past-body-title {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .comments {
+    padding: 0 31.67vw;
+  }
+  .comments__title {
+    font-family: "AvenirBold";
+    margin: 48px 0 56px 0;
+  }
+  .comments__new-name-input, .comments__new-comment-input {
+    width: 31.94vw;
+  }
+  .comments__new-btn {
+    width: 160px;
+    height: 48px;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-bottom: 24px;
+  }
+  .comments__past-comment-avatar {
+    -webkit-box-flex: 9;
+        -ms-flex: 9;
+            flex: 9;
+  }
+  .comments__past-comment-body {
+    -webkit-box-flex: 91;
+        -ms-flex: 91;
+            flex: 91;
+  }
+  .comments__past-body-title {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
 }
 
 html,
@@ -854,5 +1025,13 @@ body {
 .btn {
   background-color: #323232;
   color: #FFF;
+  font-family: "AvenirDemiBold";
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+}
+
+.btn:hover {
+  background-color: black;
 }
 /*# sourceMappingURL=main.css.map */

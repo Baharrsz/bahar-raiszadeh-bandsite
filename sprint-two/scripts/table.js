@@ -38,5 +38,7 @@ let tourInfo = [
 ];
 
 //Creating the table
+//Two sections in the table are made: one with tours info in it and the other with 6 identical rows of labels
+//The two sections will be styled in CSS so that one is located on top of the other, its rows appearing between the rows of the other
 tableCreator(".shows-tours__table", tourInfo, "label", "label");
 tableCreator(".shows-tours__table", tourInfo, "content", "content");
