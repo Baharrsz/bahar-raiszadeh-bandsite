@@ -706,6 +706,11 @@ label {
   }
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .shows-hero {
   width: 100vw;
   height: 147.5vw;
@@ -759,7 +764,7 @@ label {
 
 .shows-tours {
   width: 100vw;
-  height: 3000px;
+  padding: 0 5vw;
 }
 
 .shows-tours * {
@@ -769,29 +774,66 @@ label {
 
 .shows-tours__title {
   margin-top: 32px;
+  font-family: "AvenirBold";
 }
 
 .shows-tours__table {
   position: relative;
+  height: 1500px;
 }
 
 .shows-tours__table-section--label {
   position: absolute;
-  top: 41px;
+  top: 11px;
   font-size: 12px;
   line-height: 20px;
   font-family: "AvenirBold";
   color: #AFAFAF;
 }
 
+.shows-tours__table-section--label > div {
+  height: 242px;
+}
+
+.shows-tours__table-section--label > div > div {
+  margin: 29px 0;
+}
+
+.shows-tours__table-section--label > div button {
+  visibility: hidden;
+  width: 90vw;
+  height: 48px;
+  margin: 2px 0 16px 0;
+}
+
 .shows-tours__table-section--content {
   position: absolute;
-  top: 77px;
+  top: 35px;
   font-size: 13px;
   line-height: 18px;
 }
 
-.shows-tours__table-row {
+.shows-tours__table-section--content > div {
+  width: 90vw;
+  height: 241px;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+.shows-tours__table-section--content > div > div {
+  margin: 30px 0;
+}
+
+.shows-tours__table-section--content > div div:first-child {
+  font-family: "AvenirDemiBold";
+}
+
+.shows-tours__table-section--content > div button {
+  width: 90vw;
+  height: 48px;
+  margin: 2px 0 16px 0;
+}
+
+.shows-tours__table > * {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -802,19 +844,6 @@ label {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-}
-
-.shows-tours__table-label-cell {
-  margin: 29px 0;
-}
-
-.shows-tours__table-content-cell {
-  margin: 30px 0;
-}
-
-.shows-tours__table-content-cell--btn {
-  position: relative;
-  top: -40px;
 }
 
 .comments {

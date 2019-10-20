@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .shows-hero {
   width: 100vw;
   height: 147.5vw; //472px/320px
@@ -44,7 +48,7 @@
 
 .shows-tours {
   width: 100vw;
-  height: 3000px;
+  padding: 0 5vw;
 
   * {
     margin: 0;
@@ -53,46 +57,71 @@
 
   &__title {
     margin-top: 32px;
+    font-family: "AvenirBold";
   }
 
   &__table {
     position: relative;
+    height: 1500px;
 
     &-section {
       &--label {
         position: absolute;
-        top: 41px; //=(title line-height)+(required distance)-(cell margin)=32+40-29
+        top: 11px; //(required distance)-(cell margin)=40-29
         font-size: 12px;
         line-height: 20px;
         font-family: "AvenirBold";
         color: $silver;
+
+        & > div {
+          //selecs all rows of the first table
+          height: 242px;
+
+          > div {
+            //selecs all cells of the first table
+            margin: 29px 0; //(two required distances+content line-height)/2=(16+24+18)/2
+          }
+          button {
+            visibility: hidden;
+            width: 90vw; //288/320
+            height: 48px;
+            margin: 2px 0 16px 0;
+          }
+        }
       }
 
       &--content {
         position: absolute;
-        top: 77px; //(heads table position)+(required distance)+(heads line-height)=41+16+20
+        top: 35px; //(labels cell margin)+(labels line-height)+(required distance)-(contents cell margin)=29+20+16-30
         font-size: 13px;
         line-height: 18px;
+
+        & > div {
+          //selecs all rows of the second table
+          width: 90vw;
+          height: 241px;
+          border-bottom: 1px solid $mercury;
+          // height: 346px; //!!!!!!here
+          > div {
+            //selects all cells of the second table
+            margin: 30px 0; //(two required distances+content line-height)/2=(16+24+20)/2
+          }
+          div:first-child {
+            font-family: "AvenirDemiBold";
+          }
+          button {
+            width: 90vw; //288/320
+            height: 48px;
+            margin: 2px 0 16px 0;
+          }
+        }
       }
     }
 
-    &-row {
+    & > * {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-    }
-
-    &-label-cell {
-      margin: 29px 0; //(two required distances+content line-height)/2=(16+24+18)/2
-    }
-
-    &-content-cell {
-      margin: 30px 0; //(two required distances+content line-height)/2=(16+24+20)/2
-
-      &--btn {
-        position: relative; //here!!!
-        top: -40px;
-      }
     }
   }
 }

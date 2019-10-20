@@ -39,7 +39,9 @@ function objectCreater(keyArray, valueArray) {
   return result;
 }
 
-function tableCreator(tableContainer, dataArray, labelOrContent, tableId) {
+function tableCreator(tableContainer, inputArray, labelOrContent, tableId) {
+  let dataArray = inputArray.slice();
+
   let table = elementCreator(
     tableContainer,
     { section: ["div"] },
@@ -84,6 +86,7 @@ function tableCreator(tableContainer, dataArray, labelOrContent, tableId) {
         Object.keys(dataArray[item])
       );
     }
+
     elementTextChanger(cells, dataArray[item]);
   }
 }
