@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .shows-tours {
   width: 100vw;
   padding: 0 5vw;
@@ -116,6 +119,80 @@
               margin: 16px 0;
               display: flex;
               align-items: center;
+            }
+            button {
+              width: 160px;
+              margin: 16px 0;
+              flex: 25%;
+            }
+          }
+        }
+      }
+    }
+  }
+  #label-row--0 {
+    visibility: visible;
+  }
+}
+
+@include huge {
+  .shows-tours {
+    display: flex;
+    padding: 0;
+
+    &__title {
+      padding-left: 12.5vw;
+      margin-top: 48px;
+      flex: 31.67%;
+    }
+
+    &__table {
+      padding-right: 12.5vw;
+      flex: 68.33%;
+      height: 600px;
+
+      &-section {
+        width: 55.83vw;
+        &--label {
+          top: 40px;
+
+          & > div {
+            //selecs all rows of the first table (labels)
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            visibility: hidden;
+
+            > div {
+              //selecs all cells of the first table (labels)
+              flex: 25%;
+              margin: 0;
+            }
+
+            button {
+              width: 160px;
+              margin: 0;
+              flex: 25%;
+            }
+          }
+        }
+        &--content {
+          top: 80px; //(required distance)-(cell margin)=40-29
+
+          & > div {
+            //selecs all rows of the second table (contents)
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            > div {
+              //selecs all cells of the second table (contents)
+              flex: 25%;
+              margin: 16px 0;
+              display: flex;
+              align-items: center;
+              margin: 0;
             }
             button {
               width: 160px;

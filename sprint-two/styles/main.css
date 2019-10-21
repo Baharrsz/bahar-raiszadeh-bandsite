@@ -767,6 +767,7 @@ label {
 
 .shows-hero__song {
   width: 90vw;
+  height: 146px;
   margin-top: 20vw;
   margin-left: 5vw;
   border: none;
@@ -811,6 +812,11 @@ label {
     width: 30.29vw;
     margin: 0 12.5vw 0 4.44vw;
   }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .shows-tours {
@@ -935,6 +941,93 @@ label {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .shows-tours__table-section--content > div button {
+    width: 160px;
+    margin: 16px 0;
+    -webkit-box-flex: 25%;
+        -ms-flex: 25%;
+            flex: 25%;
+  }
+  #label-row--0 {
+    visibility: visible;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .shows-tours {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+  }
+  .shows-tours__title {
+    padding-left: 12.5vw;
+    margin-top: 48px;
+    -webkit-box-flex: 31.67%;
+        -ms-flex: 31.67%;
+            flex: 31.67%;
+  }
+  .shows-tours__table {
+    padding-right: 12.5vw;
+    -webkit-box-flex: 68.33%;
+        -ms-flex: 68.33%;
+            flex: 68.33%;
+    height: 600px;
+  }
+  .shows-tours__table-section {
+    width: 55.83vw;
+  }
+  .shows-tours__table-section--label {
+    top: 40px;
+  }
+  .shows-tours__table-section--label > div {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    visibility: hidden;
+  }
+  .shows-tours__table-section--label > div > div {
+    -webkit-box-flex: 25%;
+        -ms-flex: 25%;
+            flex: 25%;
+    margin: 0;
+  }
+  .shows-tours__table-section--label > div button {
+    width: 160px;
+    margin: 0;
+    -webkit-box-flex: 25%;
+        -ms-flex: 25%;
+            flex: 25%;
+  }
+  .shows-tours__table-section--content {
+    top: 80px;
+  }
+  .shows-tours__table-section--content > div {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .shows-tours__table-section--content > div > div {
+    -webkit-box-flex: 25%;
+        -ms-flex: 25%;
+            flex: 25%;
+    margin: 16px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0;
   }
   .shows-tours__table-section--content > div button {
     width: 160px;
