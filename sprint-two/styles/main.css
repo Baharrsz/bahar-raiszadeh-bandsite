@@ -655,6 +655,10 @@ label {
     font-size: 60px;
     line-height: 68px;
   }
+  .shows-hero__subtitle {
+    font-size: 36px;
+    line-height: 44px;
+  }
   .comments {
     font-size: 14px;
     line-height: 22px;
@@ -695,6 +699,10 @@ label {
   .shows-hero__text {
     font-size: 60px;
     line-height: 68px;
+  }
+  .shows-hero__subtitle {
+    font-size: 36px;
+    line-height: 44px;
   }
   .comments {
     font-size: 14px;
@@ -740,6 +748,10 @@ label {
   z-index: 1;
 }
 
+.shows-hero__container {
+  z-index: 2;
+}
+
 .shows-hero__text {
   color: #FFF;
   font-family: "AvenirBold";
@@ -755,11 +767,50 @@ label {
 
 .shows-hero__song {
   width: 90vw;
-  height: 35vw;
   margin-top: 20vw;
   margin-left: 5vw;
   border: none;
-  z-index: 2;
+}
+
+@media only screen and (min-width: 768px) {
+  .shows-hero {
+    height: 87.24vw;
+  }
+  .shows-hero__text {
+    padding-left: 3.12vw;
+  }
+  .shows-hero__subtitle {
+    padding-top: 12.5vw;
+    padding-bottom: 6vw;
+  }
+  .shows-hero__song {
+    width: 93.75vw;
+    margin-top: 12.5vw;
+    margin-left: 3.12vw;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .shows-hero {
+    height: 46.53vw;
+  }
+  .shows-hero__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .shows-hero__text {
+    width: 40.28vw;
+    margin-left: 12.5vw;
+  }
+  .shows-hero__subtitle {
+    padding-top: 11.11vw;
+    padding-bottom: 3.33vw;
+  }
+  .shows-hero__song {
+    width: 30.29vw;
+    margin: 0 12.5vw 0 4.44vw;
+  }
 }
 
 .shows-tours {
