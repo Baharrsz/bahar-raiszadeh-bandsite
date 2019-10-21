@@ -1,0 +1,162 @@
+.comments {
+  width: 100vw;
+  padding: 0 5vw; //5vw=16px/320px
+
+  &__title {
+    font-family: "AvenirBold";
+    margin: 32px 0 40px 0;
+  }
+
+  &__new {
+    display: flex;
+    border-bottom: 1px solid $mercury;
+
+    &-name,
+    &-comment {
+      display: flex;
+      flex-direction: column;
+      padding-left: 20px;
+    }
+    &-user-input {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-name-input {
+      width: 71.25vw; //228px/320px
+      height: 48px;
+      border: 1px solid $mercury;
+      border-radius: 4px;
+      background-color: $alabaster;
+      padding-left: 1.11vw;
+      margin-top: 8px;
+      margin-bottom: 24px;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $black;
+      }
+    }
+    &-comment-input {
+      @extend .comments__new-name-input;
+      height: 96px;
+    }
+
+    &-btn {
+      width: 71.25vw; //228px/320px
+      height: 48px;
+      margin: 0 0 32px 20px;
+    }
+    &-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-top: 28px;
+    }
+  }
+
+  &__past {
+    margin-bottom: 40px;
+
+    &-comment {
+      display: flex;
+      padding: 24px 0;
+      border-bottom: 1px solid $mercury;
+
+      &-avatarbox {
+        flex: 18.75;
+        text-align: end;
+      }
+      &-body {
+        flex: 81.25;
+        padding-left: 16px;
+      }
+    }
+    &-avatarbox-avatar {
+      @extend .comments__new-avatar;
+      background-color: $mercury;
+      flex: 18.75;
+      margin-top: 0;
+    }
+    &-title {
+      &-userName {
+        font-family: "AvenirDemiBold";
+      }
+      &-date {
+        color: $silver;
+        margin-left: 12px;
+      }
+    }
+    &-body-title {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 16px;
+    }
+  }
+}
+
+@include medium {
+  .comments {
+    padding: 0 16.15vw; //(24+100)/768
+
+    &__new {
+      &-name-input {
+        width: 58.85vw;
+      }
+      &-btn {
+        width: 160px;
+        height: 48px;
+        align-self: flex-end;
+      }
+    }
+
+    &__past {
+      &-comment {
+        &-avatar {
+          flex: 9;
+        }
+        &-body {
+          flex: 91;
+        }
+      }
+      &-body-title {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+@include huge {
+  .comments {
+    padding: 0 31.67vw; //(180+3*(24+68))/1440
+    &__title {
+      font-family: "AvenirBold";
+      margin: 48px 0 56px 0;
+    }
+    &__new {
+      &-name-input {
+        width: 31.94vw;
+      }
+      &-btn {
+        width: 160px;
+        height: 48px;
+        align-self: flex-end;
+        margin-bottom: 24px;
+      }
+    }
+
+    &__past {
+      &-comment {
+        &-avatar {
+          flex: 9;
+        }
+        &-body {
+          flex: 91;
+        }
+      }
+      &-body-title {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

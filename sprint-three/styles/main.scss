@@ -1,0 +1,36 @@
+@import "./partials/breakpoints";
+@import "./partials/colors";
+@import "./partials/fonts";
+@import "./partials/header";
+@import "./partials/footer";
+@import "./partials/biography-contents";
+@import "./partials/typography";
+@import "./partials/shows-hero";
+@import "./partials/shows-tours";
+@import "./partials/comments";
+
+html,
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "AvenirRegular";
+  height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.btn {
+  background-color: $black;
+  color: $white;
+  font-family: "AvenirDemiBold";
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+
+  &:hover {
+    background-color: black;
+  }
+}
