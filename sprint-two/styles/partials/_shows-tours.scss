@@ -27,7 +27,6 @@
 
         & > div {
           //selecs all rows of the first table
-          height: 242px;
 
           > div {
             //selecs all cells of the first table
@@ -51,7 +50,6 @@
         & > div {
           //selecs all rows of the second table
           width: 90vw;
-          height: 241px;
           border-bottom: 1px solid $mercury;
 
           > div {
@@ -70,18 +68,66 @@
         }
       }
     }
-
-    & > * {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
   }
 }
 @include medium {
-  .shows-hero {
-    &__song {
-      // height: 35vw;
+  .shows-tours {
+    padding: 0 3.12vw;
+
+    &__table {
+      height: 550px;
+
+      &-section {
+        &--label {
+          top: 0; //(required distance)-(cell margin)=40-29
+
+          & > div {
+            //selecs all rows of the first table (labels)
+            width: 93.75vw;
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+
+            visibility: hidden;
+
+            > div {
+              flex: 25%;
+            }
+
+            button {
+              width: 160px;
+              margin: 0;
+              flex: 25%;
+            }
+          }
+        }
+        &--content {
+          top: 36px; //(required distance)-(cell margin)=40-29
+
+          & > div {
+            //selecs all rows of the second table (contents)
+            width: 93.75vw;
+            display: flex;
+            justify-content: space-between;
+
+            > div {
+              //selecs all cells of the second table (contents)
+              flex: 25%;
+              margin: 16px 0;
+              display: flex;
+              align-items: center;
+            }
+            button {
+              width: 160px;
+              margin: 16px 0;
+              flex: 25%;
+            }
+          }
+        }
+      }
     }
+  }
+  #label-row--0 {
+    visibility: visible;
   }
 }
