@@ -34,7 +34,7 @@ let htmlStructure = {
   body: ["div", "comment-box"],
   title: ["div", "body"],
   name: ["div", "title"],
-  date: ["div", "title"],
+  timestamp: ["div", "title"],
   comment: ["div", "body"]
 };
 
@@ -47,7 +47,6 @@ for (index = 0; index <= 2; index++) {
     "comments__past-"
   );
 }
-console.log(tags);
 
 // //Displaying the 3 default comments
 // for (i in comments) {
@@ -56,17 +55,13 @@ console.log(tags);
 
 axios
   .get("https://project-1-api.herokuapp.com/comments?api_key=b")
-  .then(res => {
-    comments = res.data;
-    // console.log(comments);
+  .then(response => {
+    comments = response.data;
     return comments;
   })
   .then(comments => {
     for (i in tags) {
       elementTextChanger(tags[i], comments[i]);
-      console.log("element", tags[i]);
-      console.log("content", comments[i]);
-      // console.log(tags[i]);
     }
   });
 
@@ -75,18 +70,25 @@ form = document.querySelector(".comments__new");
 form.addEventListener("submit", click => {
   click.preventDefault();
   let newComment = {};
-  newComment.userName = click.target.name.value;
-  newComment.message = click.target.comment.value;
+  let serverPost = {};
+  newComment.name = click.target.name.value;
+  serverPost.name = click.target.name.value;
+  newComment.comment = click.target.comment.value;
+  serverPost.comment = click.target.comment.value;
   submissionDate = new Date();
   submissionDay = submissionDate.getDate();
   submissionMonth = submissionDate.getMonth() + 1;
   submissionYear = submissionDate.getFullYear();
-  newComment.date =
+  newComment.timestamp =
     submissionMonth + "/" + submissionDay + "/" + submissionYear;
-
   comments.unshift(newComment);
 
   //Replacing what is displayed with the new data
+  axios
+    .post("https://project-1-api.herokuapp.com/comments?api_key=b", serverPost)
+    .then(response => {
+      console.log(response.data);
+    });
   for (let i = 0; i <= 2; i++) {
     elementTextChanger(tags[i], comments[i]);
   }
