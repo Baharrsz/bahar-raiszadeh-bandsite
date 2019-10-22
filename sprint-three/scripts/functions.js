@@ -11,21 +11,28 @@
  * @return {object} {element name: HTML element}
  */
 function elementCreator(containerSelector, htmlStructure, className, idName) {
-  let container = document.querySelector(containerSelector);
+  let container;
+  if (typeof containerSelector.tagName !== "undefined") {
+    container = containerSelector;
+  } else {
+    container = document.querySelector(containerSelector);
+  }
   let parent = container;
   let result = {};
-  let originalClassName = className;
+  let classNames = {};
 
   for (key in htmlStructure) {
     let element = document.createElement(htmlStructure[key][0]);
+    classNames[key] = className;
 
     for (i in htmlStructure) {
       if (`${htmlStructure[key][1]}` === i) {
         parent = result[i];
-        className = `${originalClassName}${i}-`;
+        classNames[key] = `${classNames[i]}-`;
       }
     }
-    element.classList.add(`${className}${key}`);
+    classNames[key] = `${classNames[key]}${key}`;
+    element.classList.add(classNames[key]);
     if (idName) {
       element.setAttribute("id", `${idName}-${key}`);
     }
@@ -43,7 +50,14 @@ function elementCreator(containerSelector, htmlStructure, className, idName) {
  */
 function elementTextChanger(elements, content) {
   for (key in content) {
-    elements[key].innerText = content[key];
+    if (typeof elements[key] !== "undefined") {
+      // console.log("element", elements[key]);
+      // console.log("content", content[key]);
+
+      elements[key].innerText = content[key];
+      // console.log("2.element", elements[key]);
+      // console.log("2.content", content[key]);
+    }
   }
 }
 
@@ -71,54 +85,44 @@ function objectCreater(keyArray, valueArray) {
  * @param {string} labelOrContent determines if the table displays keys or values of @inputArray
  * @param {string} tableId if entered, the id of the table to be created
  */
-function tableCreator(tableContainer, inputArray, labelOrContent, tableId) {
+
+function tableCreator(tableContainer, className, inputArray) {
   let dataArray = inputArray.slice();
+  let row;
+  let cellLabel;
+  let cellContent;
 
-  let table = elementCreator(
-    tableContainer,
-    { section: ["div"] },
-    "shows-tours__table-",
-    tableId
-  );
-  let className = `shows-tours__table-section--${labelOrContent}`;
-  table.section.classList.add(className);
-
-  for (item in dataArray) {
-    //Creating rows
-    let row = elementCreator(
-      `#${tableId}-section`,
-      objectCreater([`row--${item}`], [["div"]]),
-      "shows-tours__table-",
-      `${tableId}`
+  //Creating the head row
+  row = elementCreator(tableContainer, { "row--head": ["div"] }, className);
+  //Creating cells of the head row
+  for (label in dataArray[0]) {
+    hcell = elementCreator(
+      row["row--head"],
+      { "cell--head": ["div"] },
+      `${className}row-`
     );
+    hcell["cell--head"].innerText = label;
+  }
 
-    //Creating ordinary cells inside the row:
-    let cells = {};
-    for (key in dataArray[item]) {
-      let cell = elementCreator(
-        `#${tableId}-row--${item}`,
-        objectCreater([key], [["div"]]),
-        "shows-tours__table-cell--"
+  //Creating the other rows
+  for (item of dataArray) {
+    row = elementCreator(tableContainer, { row: ["div"] }, className);
+    //Creating label cells of the row
+    for (label in item) {
+      cellLabel = elementCreator(
+        row.row,
+        { "cell-label": ["div"] },
+        `${className}row-`
       );
-      cells[key] = cell[key];
-    }
-    //Creating a button cell inside the row
-    let cell = elementCreator(
-      `#${tableId}-row--${item}`,
-      { btn: ["button"] },
-      "shows-tours__table-cell--"
-    );
-    cell.btn.classList.add("btn");
-    cell.btn.innerHTML = "BUY TICKETS";
+      cellLabel["cell-label"].innerText = label;
 
-    //Adding text to the cells
-    if (labelOrContent === "label") {
-      dataArray[item] = objectCreater(
-        Object.keys(dataArray[item]),
-        Object.keys(dataArray[item])
+      //Creating content cells of the row
+      cellContent = elementCreator(
+        row.row,
+        { "cell-content": ["div"] },
+        `${className}row-`
       );
+      cellContent["cell-content"].innerText = item[label];
     }
-
-    elementTextChanger(cells, dataArray[item]);
   }
 }

@@ -6,19 +6,19 @@ It contains the data sets for creating this sections.
 //The 3 default comments displayed in the comments section
 // let comments = [];
 // comments[0] = {
-//   userName: "Micheal Lyons",
+//   name: "Micheal Lyons",
 //   message:
 //     "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.",
 //   date: " 12/18/2018"
 // };
 // comments[1] = {
-//   userName: "Gary Wong",
+//   name: "Gary Wong",
 //   message:
 //     "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
 //   date: " 12/12/2018"
 // };
 // comments[2] = {
-//   userName: "Theodore Duncan",
+//   name: "Theodore Duncan",
 //   message:
 //     "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
 //   date: " 11/15/2018"
@@ -28,14 +28,14 @@ It contains the data sets for creating this sections.
 //container-name: [tag-name, parent-container]
 //To be used as the input of elementCreator
 let htmlStructure = {
-  comment: ["div"],
-  avatarbox: ["div", "comment"],
-  avatar: ["img", "avatarbox"],
-  body: ["div", "comment"],
+  "comment-box": ["div"],
+  "avatar-box": ["div", "comment-box"],
+  avatar: ["img", "avatar-box"],
+  body: ["div", "comment-box"],
   title: ["div", "body"],
-  userName: ["div", "title"],
+  name: ["div", "title"],
   date: ["div", "title"],
-  message: ["div", "body"]
+  comment: ["div", "body"]
 };
 
 //Creating the html for displaying the previous comments
@@ -47,7 +47,6 @@ for (index = 0; index <= 2; index++) {
     "comments__past-"
   );
 }
-
 console.log(tags);
 
 // //Displaying the 3 default comments
@@ -59,12 +58,15 @@ axios
   .get("https://project-1-api.herokuapp.com/comments?api_key=b")
   .then(res => {
     comments = res.data;
-    console.log("comments", comments);
+    // console.log(comments);
     return comments;
   })
   .then(comments => {
-    for (i in comments) {
+    for (i in tags) {
       elementTextChanger(tags[i], comments[i]);
+      console.log("element", tags[i]);
+      console.log("content", comments[i]);
+      // console.log(tags[i]);
     }
   });
 
