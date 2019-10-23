@@ -49,8 +49,8 @@ function elementCreator(containerSelector, htmlStructure, className, idName) {
  * @param {object} content {element name: text}
  */
 function elementTextChanger(elements, content) {
-  for (key in content) {
-    if (typeof elements[key] !== "undefined") {
+  for (key in elements) {
+    if (typeof content[key] !== "undefined") {
       // console.log("element", elements[key]);
       // console.log("content", content[key]);
 
@@ -131,9 +131,9 @@ function tableCreator(tableContainer, className, inputArray) {
  * If the input is older than 10 days ago, the function returns the time difference between input and now in a ntural way (some minutes/days ago, yesterday, etc.), otherwise it returns the date of input.
  * @param {integer} date a timestamp
  */
-function naturalDate(date) {
+function naturalDate(inputDate) {
   //Difference between two dates in minutes
-  let diff = (Date.now() - date) / (60 * 1000);
+  let diff = (Date.now() - inputDate) / (60 * 1000);
   if (diff < 1) return "just now";
   else if (Math.round(diff) < 2) return "a minute ago";
   else if (Math.round(diff) < 60) return `${Math.round(diff)} minutes ago`;
@@ -143,5 +143,5 @@ function naturalDate(date) {
   else if (Math.round(diff / 24 / 60) < 2) return "yesterday";
   else if (Math.round(diff / 24 / 60) < 11)
     return `${Math.round(diff / 24 / 60)} days ago`;
-  else return new Date(date).toDateString();
+  else return new Date(inputDate).toDateString();
 }

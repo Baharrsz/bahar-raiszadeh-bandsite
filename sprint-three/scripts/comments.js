@@ -3,38 +3,17 @@
 It contains the data sets for creating this sections.
  */
 
-//The 3 default comments displayed in the comments section
-// let comments = [];
-// comments[0] = {
-//   name: "Micheal Lyons",
-//   message:
-//     "They BLEW the ROOF off at their last show, once everyone started figuring out they were going. This is still simply the greatest opening of a concert I have EVER witnessed.",
-//   date: " 12/18/2018"
-// };
-// comments[1] = {
-//   name: "Gary Wong",
-//   message:
-//     "Every time I see him shred I feel so motivated to get off my couch and hop on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!",
-//   date: " 12/12/2018"
-// };
-// comments[2] = {
-//   name: "Theodore Duncan",
-//   message:
-//     "How can someone be so good!!! You can tell he lives for this and loves to do it every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!",
-//   date: " 11/15/2018"
-// };
-
 //htmlStructure specifies how different parts of the comments section are structured in the html file.
 //container-name: [tag-name, parent-container]
 //To be used as the input of elementCreator
 let htmlStructure = {
-  "comment-box": ["div"],
-  "avatar-box": ["div", "comment-box"],
-  avatar: ["img", "avatar-box"],
-  body: ["div", "comment-box"],
+  commentbox: ["div"],
+  avatarbox: ["div", "commentbox"],
+  avatar: ["img", "avatarbox"],
+  body: ["div", "commentbox"],
   title: ["div", "body"],
   name: ["div", "title"],
-  timestamp: ["div", "title"],
+  date: ["div", "title"],
   comment: ["div", "body"]
 };
 
@@ -48,15 +27,16 @@ for (index = 0; index <= 2; index++) {
   );
 }
 
-// //Displaying the 3 default comments
-// for (i in comments) {
-//   elementTextChanger(tags[i], comments[i]);
-// }
-
-axios
-  .get("https://project-1-api.herokuapp.com/comments?api_key=b")
+axios //Getting previous comments from the server
+  .get("https://project-1-api.herokuapp.com/comments?api_key=bahar")
   .then(response => {
     comments = response.data;
+    return comments;
+  })
+  .then(comments => {
+    for (comment of comments) {
+      comment.date = naturalDate(comment.timestamp);
+    }
     return comments;
   })
   .then(comments => {
@@ -69,27 +49,28 @@ axios
 form = document.querySelector(".comments__new");
 form.addEventListener("submit", click => {
   click.preventDefault();
-  let newComment = {};
   let serverPost = {};
-  newComment.name = click.target.name.value;
   serverPost.name = click.target.name.value;
-  newComment.comment = click.target.comment.value;
   serverPost.comment = click.target.comment.value;
-  submissionDate = new Date();
-  submissionDay = submissionDate.getDate();
-  submissionMonth = submissionDate.getMonth() + 1;
-  submissionYear = submissionDate.getFullYear();
-  newComment.timestamp =
-    submissionMonth + "/" + submissionDay + "/" + submissionYear;
-  comments.unshift(newComment);
 
-  //Replacing what is displayed with the new data
   axios
-    .post("https://project-1-api.herokuapp.com/comments?api_key=b", serverPost)
+    .post(
+      //Sending the new comment to the server
+      "https://project-1-api.herokuapp.com/comments?api_key=bahar",
+      serverPost
+    )
     .then(response => {
-      console.log(response.data);
+      //Getting the new comment from the server
+      let newComment = response.data;
+      comments.unshift(newComment);
+      for (i of comments) i.date = naturalDate(i.timestamp);
+
+      return comments;
+    })
+    .then(comments => {
+      //Displaying the new comment and refreshing the date of all comments that are displayed
+      for (let i = 0; i <= 2; i++) {
+        elementTextChanger(tags[i], comments[i]);
+      }
     });
-  for (let i = 0; i <= 2; i++) {
-    elementTextChanger(tags[i], comments[i]);
-  }
 });
