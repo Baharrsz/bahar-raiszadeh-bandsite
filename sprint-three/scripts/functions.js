@@ -132,14 +132,19 @@ function tableCreator(tableContainer, className, dataArray) {
 function naturalDate(inputDate) {
   //Difference between two dates in minutes
   let diff = (Date.now() - inputDate) / (60 * 1000);
-  if (diff < 1) return "just now";
-  else if (Math.round(diff) < 2) return "a minute ago";
-  else if (Math.round(diff) < 60) return `${Math.round(diff)} minutes ago`;
-  else if (Math.round(diff / 60) < 2) return "an hour ago";
-  else if (Math.round(diff / 60) < 24)
-    return `${Math.round(diff / 60)} hours ago`;
-  else if (Math.round(diff / 24 / 60) < 2) return "yesterday";
-  else if (Math.round(diff / 24 / 60) < 11)
-    return `${Math.round(diff / 24 / 60)} days ago`;
-  else return new Date(inputDate).toDateString();
+  return diff < 1
+    ? "Seconds ago"
+    : Math.round(diff) < 2
+    ? "A minute ago"
+    : Math.round(diff) < 60
+    ? `${Math.round(diff)} minutes ago`
+    : Math.round(diff / 60) < 2
+    ? "An hour ago"
+    : Math.round(diff / 60) < 24
+    ? `${Math.round(diff / 60)} hours ago`
+    : Math.round(diff / 24 / 60) < 2
+    ? "Yesterday"
+    : Math.round(diff / 24 / 60) < 11
+    ? `${Math.round(diff / 24 / 60)} days ago`
+    : new Date(inputDate).toDateString();
 }
