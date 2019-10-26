@@ -5,206 +5,158 @@
   width: 100vw;
   padding: 0 5vw;
 
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
   &__title {
-    margin-top: 32px;
     font-family: "AvenirBold";
+    margin-top: 32px;
+    margin-bottom: 40px;
   }
 
   &__table {
-    position: relative;
-    height: 1500px;
+    width: 90vw;
 
-    &-section {
-      &--label {
-        position: absolute;
-        top: 11px; //(required distance)-(cell margin)=40-29
-        font-size: 12px;
-        line-height: 20px;
-        font-family: "AvenirBold";
-        color: $silver;
+    &-row {
+      border-bottom: 1px solid $mercury;
 
-        & > div {
-          //selecs all rows of the first table
-
-          > div {
-            //selecs all cells of the first table
-            margin: 29px 0; //(two required distances+content line-height)/2=(16+24+18)/2
-          }
-          button {
-            visibility: hidden;
-            width: 90vw; //288/320
-            height: 48px;
-            margin: 2px 0 16px 0;
-          }
-        }
+      &--head {
+        display: none;
       }
-
-      &--content {
-        position: absolute;
-        top: 35px; //(labels cell margin)+(labels line-height)+(required distance)-(contents cell margin)=29+20+16-30
-        font-size: 13px;
-        line-height: 18px;
-
-        & > div {
-          //selecs all rows of the second table
+      *:nth-child(1),
+      *:nth-child(2) {
+        //Selects the first two cells (removing the id information)
+        display: none;
+      }
+      *:nth-child(4) {
+        //Selects the cells that contains date
+        font-family: "AvenirDemiBold";
+      }
+      &-cell {
+        &--label {
+          font-family: "AvenirDemiBold";
+          text-transform: uppercase;
+          color: $silver;
+          margin-top: 24px;
+        }
+        &--content {
+          margin-top: 16px;
+        }
+        &--btn {
           width: 90vw;
-          border-bottom: 1px solid $mercury;
-
-          > div {
-            //selects all cells of the second table
-            margin: 30px 0; //(two required distances+content line-height)/2=(16+24+20)/2
-          }
-          div:first-child {
-            //selects the first cell of contents
-            font-family: "AvenirDemiBold";
-          }
-          button {
-            width: 90vw; //288/320
-            height: 48px;
-            margin: 2px 0 16px 0;
-          }
+          margin-top: 32px;
+          margin-bottom: 16px;
         }
       }
     }
   }
 }
+
 @include medium {
   .shows-tours {
     padding: 0 3.12vw;
 
     &__table {
-      height: 550px;
+      width: 93.75vw;
 
-      &-section {
-        &--label {
-          top: 0; //(required distance)-(cell margin)=40-29
+      * {
+        margin: 0;
+      }
 
-          & > div {
-            //selecs all rows of the first table (labels)
-            width: 93.75vw;
-            display: flex;
-            justify-content: space-between;
-            margin: 0;
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
 
-            visibility: hidden;
+        &--head {
+          display: flex;
+          width: 72.92vw;
+          font-family: "AvenirDemiBold";
+          text-transform: uppercase;
+          color: $silver;
 
-            > div {
-              flex: 25%;
-            }
-
-            button {
-              width: 160px;
-              margin: 0;
-              flex: 25%;
-            }
+          *:first-child {
+            //Selects the first label (removing "id")
+            display: none;
           }
         }
-        &--content {
-          top: 36px; //(required distance)-(cell margin)=40-29
 
-          & > div {
-            //selecs all rows of the second table (contents)
-            width: 93.75vw;
-            display: flex;
-            justify-content: space-between;
+        &-cell {
+          &--head {
+            width: 16.15vw; //(100+24)/768
+            flex: 1;
+          }
+          &--label {
+            display: none;
+          }
 
-            > div {
-              //selecs all cells of the second table (contents)
-              flex: 25%;
-              margin: 16px 0;
-              display: flex;
-              align-items: center;
-            }
-            button {
-              width: 160px;
-              margin: 16px 0;
-              flex: 25%;
-            }
+          &--content {
+            width: 16.15vw; //(100+24)/768
+          }
+
+          &--btn {
+            width: 160px;
           }
         }
       }
     }
-  }
-  #label-row--0 {
-    visibility: visible;
   }
 }
 
 @include huge {
   .shows-tours {
-    display: flex;
     padding: 0;
+    margin-top: 48px;
+    display: flex;
 
     &__title {
       padding-left: 12.5vw;
-      margin-top: 48px;
-      flex: 31.67%;
+      width: 31.67%; //((68+24)*3+180)/1440
     }
 
     &__table {
       padding-right: 12.5vw;
-      flex: 68.33%;
-      height: 600px;
+      width: 68.33%; //(804+180)/1440
 
-      &-section {
-        width: 55.83vw;
-        &--label {
-          top: 40px;
+      * {
+        margin: 0;
+      }
 
-          & > div {
-            //selecs all rows of the first table (labels)
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
 
-            visibility: hidden;
+        &--head {
+          display: flex;
+          width: 72.92vw;
+          font-family: "AvenirDemiBold";
+          text-transform: uppercase;
+          color: $silver;
 
-            > div {
-              //selecs all cells of the first table (labels)
-              flex: 25%;
-              margin: 0;
-            }
-
-            button {
-              width: 160px;
-              margin: 0;
-              flex: 25%;
-            }
+          *:first-child {
+            //Selects the first label (removing "id")
+            display: none;
           }
         }
-        &--content {
-          top: 80px; //(required distance)-(cell margin)=40-29
 
-          & > div {
-            //selecs all rows of the second table (contents)
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
+        &-cell {
+          &--head {
+            width: 16.15vw; //(100+24)/768
+            flex: 1;
+          }
+          &--label {
+            display: none;
+          }
 
-            > div {
-              //selecs all cells of the second table (contents)
-              flex: 25%;
-              margin: 16px 0;
-              display: flex;
-              align-items: center;
-              margin: 0;
-            }
-            button {
-              width: 160px;
-              margin: 16px 0;
-              flex: 25%;
-            }
+          &--content {
+            width: 16.15vw; //(100+24)/768
+          }
+
+          &--btn {
+            width: 160px;
           }
         }
       }
     }
-  }
-  #label-row--0 {
-    visibility: visible;
   }
 }

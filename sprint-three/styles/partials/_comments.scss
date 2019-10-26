@@ -1,126 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .comments {
-  width: 100vw;
-  padding: 0 5vw; //5vw=16px/320px
+  margin: 0 auto;
+  width: 90vw;
+  padding-top: 32px;
+  padding-bottom: 40px;
 
   &__title {
     font-family: "AvenirBold";
-    margin: 32px 0 40px 0;
   }
-
   &__new {
     display: flex;
+    margin-top: 40px;
     border-bottom: 1px solid $mercury;
 
-    &-name,
-    &-comment {
-      display: flex;
-      flex-direction: column;
-      padding-left: 20px;
-    }
-    &-user-input {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &-name-input {
-      width: 71.25vw; //228px/320px
-      height: 48px;
-      border: 1px solid $mercury;
-      border-radius: 4px;
-      background-color: $alabaster;
-      padding-left: 1.11vw;
-      margin-top: 8px;
-      margin-bottom: 24px;
-
-      &:focus {
-        outline: none;
-        border: 2px solid $black;
-      }
-    }
-    &-comment-input {
-      @extend .comments__new-name-input;
-      height: 96px;
-    }
-
-    &-btn {
-      width: 71.25vw; //228px/320px
-      height: 48px;
-      margin: 0 0 32px 20px;
-    }
     &-avatar {
       width: 48px;
       height: 48px;
-      border-radius: 50%;
-      margin-top: 28px;
+      border-radius: 100%;
+    }
+    &-input {
+      display: flex;
+      flex-direction: column;
+      margin-left: 16px;
+
+      &-name {
+        width: 100%;
+        &-text {
+          width: 100%;
+          border: 1px solid $mercury;
+          border-radius: 4px;
+          background-color: $alabaster;
+          height: 48px;
+          padding: 16px;
+          margin-bottom: 24px;
+        }
+      }
+      &-comment {
+        width: 100%;
+        &-text {
+          @extend .comments__new-input-name-text;
+          height: 96px;
+        }
+      }
+      &-btn {
+        margin-bottom: 32px;
+      }
     }
   }
 
   &__past {
-    margin-bottom: 40px;
-
-    &-comment {
+    &-commentbox {
       display: flex;
       padding: 24px 0;
       border-bottom: 1px solid $mercury;
 
       &-avatarbox {
-        flex: 18.75;
-        text-align: end;
+        // flex: 1;
+        &-avatar {
+          @extend .comments__new-avatar;
+          background-color: lightgrey;
+        }
       }
       &-body {
-        flex: 81.25;
-        padding-left: 16px;
+        width: 73.12vw;
+        margin-left: 16px;
+
+        &-title {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          width: 100%;
+
+          &-name {
+            font-family: "AvenirDemiBold";
+          }
+          &-date {
+            color: $silver;
+          }
+        }
       }
-    }
-    &-avatarbox-avatar {
-      @extend .comments__new-avatar;
-      background-color: $mercury;
-      flex: 18.75;
-      margin-top: 0;
-    }
-    &-title {
-      &-userName {
-        font-family: "AvenirDemiBold";
-      }
-      &-date {
-        color: $silver;
-        margin-left: 12px;
-      }
-    }
-    &-body-title {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 16px;
     }
   }
 }
 
 @include medium {
   .comments {
-    padding: 0 16.15vw; //(24+100)/768
+    width: 67.71vw; //520/768
 
     &__new {
-      &-name-input {
-        width: 58.85vw;
-      }
-      &-btn {
-        width: 160px;
-        height: 48px;
-        align-self: flex-end;
+      &-input {
+        align-items: flex-end;
+        width: 59.37vw; //456/768
+
+        &-btn {
+          width: 160px;
+        }
       }
     }
 
     &__past {
-      &-comment {
-        &-avatar {
-          flex: 9;
-        }
+      &-commentbox {
         &-body {
-          flex: 91;
+          &-title {
+            justify-content: flex-start;
+
+            &-name {
+              margin-right: 3.12vw;
+            }
+          }
         }
-      }
-      &-body-title {
-        justify-content: flex-start;
       }
     }
   }
@@ -128,34 +120,34 @@
 
 @include huge {
   .comments {
-    padding: 0 31.67vw; //(180+3*(24+68))/1440
-    &__title {
-      font-family: "AvenirBold";
-      margin: 48px 0 56px 0;
-    }
+    width: 36.67vw; //528/1440
+    padding-top: 48px;
+    padding-bottom: 40px;
+
     &__new {
-      &-name-input {
-        width: 31.94vw;
-      }
-      &-btn {
-        width: 160px;
-        height: 48px;
-        align-self: flex-end;
-        margin-bottom: 24px;
+      margin-top: 56px;
+      &-input {
+        margin-left: 20px;
+        align-items: flex-end;
+        width: 31.94vw; //460/1440
+
+        &-btn {
+          width: 160px;
+        }
       }
     }
 
     &__past {
-      &-comment {
-        &-avatar {
-          flex: 9;
-        }
+      &-commentbox {
         &-body {
-          flex: 91;
+          &-title {
+            justify-content: flex-start;
+
+            &-name {
+              margin-right: 1vw;
+            }
+          }
         }
-      }
-      &-body-title {
-        justify-content: flex-start;
       }
     }
   }

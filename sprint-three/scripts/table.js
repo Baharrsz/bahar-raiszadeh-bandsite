@@ -46,7 +46,7 @@ axios
     return tourInfo;
   })
   .then(tourInfo => {
-    tableCreator(".shows-tours__table", ".shows-tours__table-", tourInfo);
+    tableCreator(".shows-tours__table", "shows-tours__table-", tourInfo);
   });
 
 //Creating the table

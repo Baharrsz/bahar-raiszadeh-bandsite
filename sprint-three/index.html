@@ -19,10 +19,10 @@
       </a>
       <ul class="header__nav">
         <li class="header__nav-item header__nav-item--active">
-          <a class="header__nav-link" href="#">Biography</a>
+          <a class="header__nav-link" href="index.html">Biography</a>
         </li>
         <li class="header__nav-item">
-          <a class="header__nav-link" href="#">Shows</a>
+          <a class="header__nav-link" href="./shows.html">Shows</a>
         </li>
       </ul>
     </header>
@@ -140,27 +140,28 @@
             src="./assets/images/Mohan-muruge.jpg"
             alt=""
           />
-          <div class="comments__new-user-input">
-            <div class="comments__new-name">
-              <label class="comments__new-name-label">NAME</label>
+          <div class="comments__new-input">
+            <div class="comments__new-input-name">
+              <label class="comments__new-input-name-label">NAME</label>
               <input
-                class="comments__new-name-input"
+                class="comments__new-input-name-text"
                 type="text"
                 name="name"
                 placeholder="Mohan Muruge"
               />
             </div>
-            <div class="comments__new-comment">
-              <label class="comments__new-comment-label">COMMENT</label>
-              <input
-                class="comments__new-comment-input"
-                type="text"
+            <div class="comments__new-input-comment">
+              <label class="comments__new-input-comment-label">COMMENT</label>
+              <textarea
+                class="comments__new-input-comment-text"
                 name="comment"
                 placeholder="Add a new comment"
-              />
+                rows="3"
+                cols="50"
+              ></textarea>
             </div>
             <button
-              class="comments__new-btn btn"
+              class="comments__new-input-btn btn"
               name="comment-button"
               type="submit"
             >

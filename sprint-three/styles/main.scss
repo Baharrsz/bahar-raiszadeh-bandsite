@@ -22,13 +22,14 @@ body {
 *:after {
   box-sizing: inherit;
 }
-.btn {
+button {
   background-color: $black;
   color: $white;
   font-family: "AvenirDemiBold";
   border-radius: 4px;
   font-size: 16px;
   border: none;
+  height: 48px;
 
   &:hover {
     background-color: black;

@@ -16,14 +16,16 @@ h3,
 h4,
 p,
 li,
-shows-tours__table--contents {
+.shows-tours__table {
   //paragraphs, Lists & contact information
   font-size: 13px;
   line-height: 18px;
 }
 
 h5,
-label {
+label,
+.shows-tours__table-row--head,
+.shows-tours__table-row-cell--label {
   //LABELS
   font-size: 12px;
   line-height: 20px;
@@ -61,13 +63,16 @@ label {
 
   h4,
   p,
-  li {
+  li,
+  .shows-tours__table {
     //paragraphs, Lists & contact information
     font-size: 14px;
     line-height: 22px;
   }
 
-  h5 {
+  h5,
+  .shows-tours__table-row--head,
+  .shows-tours__table-row-cell--label {
     //LABELS
     font-size: 12px;
     line-height: 20px;
@@ -118,13 +123,16 @@ label {
 
   h4,
   p,
-  li {
+  li,
+  .shows-tours__table {
     //paragraphs, Lists & contact information
     font-size: 14px;
     line-height: 22px;
   }
 
-  h5 {
+  h5,
+  .shows-tours__table-row--head,
+  .shows-tours__table-row-cell--label {
     //LABELS
     font-size: 12px;
     line-height: 20px;

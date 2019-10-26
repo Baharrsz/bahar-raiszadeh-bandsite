@@ -1,4 +1,4 @@
-//This file contains all of the functions used in the projects
+//This file contains all of the functions used in the project
 
 /**
  * Creats an HTML structure inside an element and returns an object containing created tags
@@ -20,9 +20,10 @@ function elementCreator(containerSelector, htmlStructure, className, idName) {
   let parent = container;
   let result = {};
   let classNames = {};
+  let element;
 
   for (key in htmlStructure) {
-    let element = document.createElement(htmlStructure[key][0]);
+    element = document.createElement(htmlStructure[key][0]);
     classNames[key] = className;
 
     for (i in htmlStructure) {
@@ -43,20 +44,14 @@ function elementCreator(containerSelector, htmlStructure, className, idName) {
 }
 
 /**
- * Replaces the innerText of elements in @elements based on the values of the corresponding keys from @content
- * All keys of @elements must be found in keys of @content
+ * Replaces the innerText of elements in @elements with the values of the corresponding keys from @content
  * @param {object} elements {element name: HTML element}
  * @param {object} content {element name: text}
  */
 function elementTextChanger(elements, content) {
   for (key in elements) {
     if (typeof content[key] !== "undefined") {
-      // console.log("element", elements[key]);
-      // console.log("content", content[key]);
-
       elements[key].innerText = content[key];
-      // console.log("2.element", elements[key]);
-      // console.log("2.content", content[key]);
     }
   }
 }
@@ -76,27 +71,24 @@ function objectCreater(keyArray, valueArray) {
 }
 
 /**
- * Creates a table inside an html container specified by @tableContainer.
- * The number of rows is equal to the number of values in inputArray
- * If @labelOrContent is "label" each cell of the table is filled with key values of @inputArray , otherwise values are used
+ * Creates a table inside an html container specified by @tableContainer
+ * The number of rows is equal to the number of values in @dataArray
  * @param {string} tableContainer the selector of the elements wherein the table is to be created e.g. ".className", "#id"
- * @param {Array} inputArray an array of objects containing data based on which the table is created
- * @param {object} inputArray[] {label:value}
- * @param {string} labelOrContent determines if the table displays keys or values of @inputArray
- * @param {string} tableId if entered, the id of the table to be created
+ * @param {Array} dataArray an array of objects containing data based on which the table is created
+ * @param {object} dataArray[] {label:value}
+ * @param {string} className the name to be added to the beginning of the class names of the table parts
  */
 
-function tableCreator(tableContainer, className, inputArray) {
-  let dataArray = inputArray.slice();
-  let row;
+function tableCreator(tableContainer, className, dataArray) {
   let cellLabel;
   let cellContent;
+  let cellButton;
 
   //Creating the head row
-  row = elementCreator(tableContainer, { "row--head": ["div"] }, className);
+  let row = elementCreator(tableContainer, { "row--head": ["div"] }, className);
   //Creating cells of the head row
   for (label in dataArray[0]) {
-    hcell = elementCreator(
+    let hcell = elementCreator(
       row["row--head"],
       { "cell--head": ["div"] },
       `${className}row-`
@@ -111,24 +103,30 @@ function tableCreator(tableContainer, className, inputArray) {
     for (label in item) {
       cellLabel = elementCreator(
         row.row,
-        { "cell-label": ["div"] },
+        { "cell--label": ["div"] },
         `${className}row-`
       );
-      cellLabel["cell-label"].innerText = label;
+      cellLabel["cell--label"].innerText = label;
 
       //Creating content cells of the row
       cellContent = elementCreator(
         row.row,
-        { "cell-content": ["div"] },
+        { "cell--content": ["div"] },
         `${className}row-`
       );
-      cellContent["cell-content"].innerText = item[label];
+      cellContent["cell--content"].innerText = item[label];
     }
+    cellButton = elementCreator(
+      row.row,
+      { "cell--btn": ["button"] },
+      `${className}row-`
+    );
+    cellButton["cell--btn"].innerText = "BUY TICKETS";
   }
 }
 
 /**
- * If the input is older than 10 days ago, the function returns the time difference between input and now in a ntural way (some minutes/days ago, yesterday, etc.), otherwise it returns the date of input.
+ * If the input is older than 10 days ago, the function returns the time difference between input and the current time in a natural way (some minutes/days ago, yesterday, etc.), otherwise it returns the date of the input.
  * @param {integer} date a timestamp
  */
 function naturalDate(inputDate) {

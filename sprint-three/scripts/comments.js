@@ -17,32 +17,24 @@ let htmlStructure = {
   comment: ["div", "body"]
 };
 
-//Creating the html for displaying the previous comments
 let tags = [];
-for (index = 0; index <= 2; index++) {
-  tags[index] = elementCreator(
-    ".comments__past",
-    htmlStructure,
-    "comments__past-"
-  );
-}
+let comments;
 
 axios //Getting previous comments from the server
   .get("https://project-1-api.herokuapp.com/comments?api_key=bahar")
   .then(response => {
     comments = response.data;
-    return comments;
-  })
-  .then(comments => {
-    for (comment of comments) {
-      comment.date = naturalDate(comment.timestamp);
-    }
-    return comments;
-  })
-  .then(comments => {
-    for (i in tags) {
-      elementTextChanger(tags[i], comments[i]);
-    }
+    //Changing the timestamp of all comments to readable dates
+    for (comment of comments) comment.date = naturalDate(comment.timestamp);
+    //Displaying the comments
+    for (i in comments)
+      tags[i] = elementCreator(
+        ".comments__past",
+        htmlStructure,
+        "comments__past-"
+      );
+    comments = comments.reverse();
+    for (i in tags) elementTextChanger(tags[i], comments[i]);
   });
 
 //Getting the new comment from the user input
@@ -52,6 +44,7 @@ form.addEventListener("submit", click => {
   let serverPost = {};
   serverPost.name = click.target.name.value;
   serverPost.comment = click.target.comment.value;
+  click.target.reset();
 
   axios
     .post(
@@ -60,17 +53,15 @@ form.addEventListener("submit", click => {
       serverPost
     )
     .then(response => {
-      //Getting the new comment from the server
+      //Getting the new comment back from the server
       let newComment = response.data;
       comments.unshift(newComment);
       for (i of comments) i.date = naturalDate(i.timestamp);
 
-      return comments;
-    })
-    .then(comments => {
       //Displaying the new comment and refreshing the date of all comments that are displayed
-      for (let i = 0; i <= 2; i++) {
-        elementTextChanger(tags[i], comments[i]);
-      }
+      tags.push(
+        elementCreator(".comments__past", htmlStructure, "comments__past-")
+      );
+      for (i in comments) elementTextChanger(tags[i], comments[i]);
     });
 });

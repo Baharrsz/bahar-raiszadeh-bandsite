@@ -404,7 +404,6 @@ content block for the 'small' mixin in the partials/__breakpoints*/
 .gallery {
   background-color: #FAFAFA;
   margin-top: 32px;
-  margin-bottom: 16px;
   padding-top: 32px;
   padding: 0 5vw;
 }
@@ -601,13 +600,15 @@ h3,
 h4,
 p,
 li,
-shows-tours__table--contents {
+.shows-tours__table {
   font-size: 13px;
   line-height: 18px;
 }
 
 h5,
-label {
+label,
+.shows-tours__table-row--head,
+.shows-tours__table-row-cell--label {
   font-size: 12px;
   line-height: 20px;
   font-family: "AvenirBold";
@@ -639,11 +640,14 @@ label {
   }
   h4,
   p,
-  li {
+  li,
+  .shows-tours__table {
     font-size: 14px;
     line-height: 22px;
   }
-  h5 {
+  h5,
+  .shows-tours__table-row--head,
+  .shows-tours__table-row-cell--label {
     font-size: 12px;
     line-height: 20px;
   }
@@ -684,11 +688,14 @@ label {
   }
   h4,
   p,
-  li {
+  li,
+  .shows-tours__table {
     font-size: 14px;
     line-height: 22px;
   }
-  h5 {
+  h5,
+  .shows-tours__table-row--head,
+  .shows-tours__table-row-cell--label {
     font-size: 12px;
     line-height: 20px;
   }
@@ -824,65 +831,48 @@ label {
   padding: 0 5vw;
 }
 
-.shows-tours * {
-  margin: 0;
-  padding: 0;
-}
-
 .shows-tours__title {
-  margin-top: 32px;
   font-family: "AvenirBold";
+  margin-top: 32px;
+  margin-bottom: 40px;
 }
 
 .shows-tours__table {
-  position: relative;
-  height: 1500px;
-}
-
-.shows-tours__table-section--label {
-  position: absolute;
-  top: 11px;
-  font-size: 12px;
-  line-height: 20px;
-  font-family: "AvenirBold";
-  color: #AFAFAF;
-}
-
-.shows-tours__table-section--label > div > div {
-  margin: 29px 0;
-}
-
-.shows-tours__table-section--label > div button {
-  visibility: hidden;
   width: 90vw;
-  height: 48px;
-  margin: 2px 0 16px 0;
 }
 
-.shows-tours__table-section--content {
-  position: absolute;
-  top: 35px;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-.shows-tours__table-section--content > div {
-  width: 90vw;
+.shows-tours__table-row {
   border-bottom: 1px solid #E1E1E1;
 }
 
-.shows-tours__table-section--content > div > div {
-  margin: 30px 0;
+.shows-tours__table-row--head {
+  display: none;
 }
 
-.shows-tours__table-section--content > div div:first-child {
+.shows-tours__table-row *:nth-child(1),
+.shows-tours__table-row *:nth-child(2) {
+  display: none;
+}
+
+.shows-tours__table-row *:nth-child(4) {
   font-family: "AvenirDemiBold";
 }
 
-.shows-tours__table-section--content > div button {
+.shows-tours__table-row-cell--label {
+  font-family: "AvenirDemiBold";
+  text-transform: uppercase;
+  color: #AFAFAF;
+  margin-top: 24px;
+}
+
+.shows-tours__table-row-cell--content {
+  margin-top: 16px;
+}
+
+.shows-tours__table-row-cell--btn {
   width: 90vw;
-  height: 48px;
-  margin: 2px 0 16px 0;
+  margin-top: 32px;
+  margin-bottom: 16px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -890,233 +880,180 @@ label {
     padding: 0 3.12vw;
   }
   .shows-tours__table {
-    height: 550px;
-  }
-  .shows-tours__table-section--label {
-    top: 0;
-  }
-  .shows-tours__table-section--label > div {
     width: 93.75vw;
+  }
+  .shows-tours__table * {
+    margin: 0;
+  }
+  .shows-tours__table-row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin: 0;
-    visibility: hidden;
-  }
-  .shows-tours__table-section--label > div > div {
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-  }
-  .shows-tours__table-section--label > div button {
-    width: 160px;
-    margin: 0;
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-  }
-  .shows-tours__table-section--content {
-    top: 36px;
-  }
-  .shows-tours__table-section--content > div {
-    width: 93.75vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .shows-tours__table-section--content > div > div {
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-    margin: 16px 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    padding: 20px 0;
   }
-  .shows-tours__table-section--content > div button {
+  .shows-tours__table-row--head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 72.92vw;
+    font-family: "AvenirDemiBold";
+    text-transform: uppercase;
+    color: #AFAFAF;
+  }
+  .shows-tours__table-row--head *:first-child {
+    display: none;
+  }
+  .shows-tours__table-row-cell--head {
+    width: 16.15vw;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .shows-tours__table-row-cell--label {
+    display: none;
+  }
+  .shows-tours__table-row-cell--content {
+    width: 16.15vw;
+  }
+  .shows-tours__table-row-cell--btn {
     width: 160px;
-    margin: 16px 0;
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-  }
-  #label-row--0 {
-    visibility: visible;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .shows-tours {
+    padding: 0;
+    margin-top: 48px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 0;
   }
   .shows-tours__title {
     padding-left: 12.5vw;
-    margin-top: 48px;
-    -webkit-box-flex: 31.67%;
-        -ms-flex: 31.67%;
-            flex: 31.67%;
+    width: 31.67%;
   }
   .shows-tours__table {
     padding-right: 12.5vw;
-    -webkit-box-flex: 68.33%;
-        -ms-flex: 68.33%;
-            flex: 68.33%;
-    height: 600px;
+    width: 68.33%;
   }
-  .shows-tours__table-section {
-    width: 55.83vw;
+  .shows-tours__table * {
+    margin: 0;
   }
-  .shows-tours__table-section--label {
-    top: 40px;
-  }
-  .shows-tours__table-section--label > div {
-    width: 100%;
+  .shows-tours__table-row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    visibility: hidden;
-  }
-  .shows-tours__table-section--label > div > div {
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-    margin: 0;
-  }
-  .shows-tours__table-section--label > div button {
-    width: 160px;
-    margin: 0;
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-  }
-  .shows-tours__table-section--content {
-    top: 80px;
-  }
-  .shows-tours__table-section--content > div {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  .shows-tours__table-section--content > div > div {
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-    margin: 16px 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin: 0;
+    padding: 16px 0;
   }
-  .shows-tours__table-section--content > div button {
+  .shows-tours__table-row--head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 72.92vw;
+    font-family: "AvenirDemiBold";
+    text-transform: uppercase;
+    color: #AFAFAF;
+  }
+  .shows-tours__table-row--head *:first-child {
+    display: none;
+  }
+  .shows-tours__table-row-cell--head {
+    width: 16.15vw;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .shows-tours__table-row-cell--label {
+    display: none;
+  }
+  .shows-tours__table-row-cell--content {
+    width: 16.15vw;
+  }
+  .shows-tours__table-row-cell--btn {
     width: 160px;
-    margin: 16px 0;
-    -webkit-box-flex: 25%;
-        -ms-flex: 25%;
-            flex: 25%;
-  }
-  #label-row--0 {
-    visibility: visible;
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .comments {
-  width: 100vw;
-  padding: 0 5vw;
+  margin: 0 auto;
+  width: 90vw;
+  padding-top: 32px;
+  padding-bottom: 40px;
 }
 
 .comments__title {
   font-family: "AvenirBold";
-  margin: 32px 0 40px 0;
 }
 
 .comments__new {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 40px;
   border-bottom: 1px solid #E1E1E1;
 }
 
-.comments__new-name, .comments__new-comment {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding-left: 20px;
-}
-
-.comments__new-user-input {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.comments__new-name-input, .comments__new-comment-input {
-  width: 71.25vw;
+.comments__new-avatar, .comments__past-commentbox-avatarbox-avatar {
+  width: 48px;
   height: 48px;
+  border-radius: 100%;
+}
+
+.comments__new-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 16px;
+}
+
+.comments__new-input-name {
+  width: 100%;
+}
+
+.comments__new-input-name-text, .comments__new-input-comment-text {
+  width: 100%;
   border: 1px solid #E1E1E1;
   border-radius: 4px;
   background-color: #FAFAFA;
-  padding-left: 1.11vw;
-  margin-top: 8px;
+  height: 48px;
+  padding: 16px;
   margin-bottom: 24px;
 }
 
-.comments__new-name-input:focus, .comments__new-comment-input:focus {
-  outline: none;
-  border: 2px solid #323232;
+.comments__new-input-comment {
+  width: 100%;
 }
 
-.comments__new-comment-input {
+.comments__new-input-comment-text {
   height: 96px;
 }
 
-.comments__new-btn {
-  width: 71.25vw;
-  height: 48px;
-  margin: 0 0 32px 20px;
+.comments__new-input-btn {
+  margin-bottom: 32px;
 }
 
-.comments__new-avatar, .comments__past-avatarbox-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  margin-top: 28px;
-}
-
-.comments__past {
-  margin-bottom: 40px;
-}
-
-.comments__past-comment {
+.comments__past-commentbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1124,109 +1061,83 @@ label {
   border-bottom: 1px solid #E1E1E1;
 }
 
-.comments__past-comment-avatarbox {
-  -webkit-box-flex: 18.75;
-      -ms-flex: 18.75;
-          flex: 18.75;
-  text-align: end;
+.comments__past-commentbox-avatarbox-avatar {
+  background-color: lightgrey;
 }
 
-.comments__past-comment-body {
-  -webkit-box-flex: 81.25;
-      -ms-flex: 81.25;
-          flex: 81.25;
-  padding-left: 16px;
+.comments__past-commentbox-body {
+  width: 73.12vw;
+  margin-left: 16px;
 }
 
-.comments__past-avatarbox-avatar {
-  background-color: #E1E1E1;
-  -webkit-box-flex: 18.75;
-      -ms-flex: 18.75;
-          flex: 18.75;
-  margin-top: 0;
-}
-
-.comments__past-title-userName {
-  font-family: "AvenirDemiBold";
-}
-
-.comments__past-title-date {
-  color: #AFAFAF;
-  margin-left: 12px;
-}
-
-.comments__past-body-title {
+.comments__past-commentbox-body-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-bottom: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.comments__past-commentbox-body-title-name {
+  font-family: "AvenirDemiBold";
+}
+
+.comments__past-commentbox-body-title-date {
+  color: #AFAFAF;
 }
 
 @media only screen and (min-width: 768px) {
   .comments {
-    padding: 0 16.15vw;
+    width: 67.71vw;
   }
-  .comments__new-name-input, .comments__new-comment-input {
-    width: 58.85vw;
+  .comments__new-input {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    width: 59.37vw;
   }
-  .comments__new-btn {
+  .comments__new-input-btn {
     width: 160px;
-    height: 48px;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
   }
-  .comments__past-comment-avatar {
-    -webkit-box-flex: 9;
-        -ms-flex: 9;
-            flex: 9;
-  }
-  .comments__past-comment-body {
-    -webkit-box-flex: 91;
-        -ms-flex: 91;
-            flex: 91;
-  }
-  .comments__past-body-title {
+  .comments__past-commentbox-body-title {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+  .comments__past-commentbox-body-title-name {
+    margin-right: 3.12vw;
   }
 }
 
 @media only screen and (min-width: 1440px) {
   .comments {
-    padding: 0 31.67vw;
+    width: 36.67vw;
+    padding-top: 48px;
+    padding-bottom: 40px;
   }
-  .comments__title {
-    font-family: "AvenirBold";
-    margin: 48px 0 56px 0;
+  .comments__new {
+    margin-top: 56px;
   }
-  .comments__new-name-input, .comments__new-comment-input {
+  .comments__new-input {
+    margin-left: 20px;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
     width: 31.94vw;
   }
-  .comments__new-btn {
+  .comments__new-input-btn {
     width: 160px;
-    height: 48px;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    margin-bottom: 24px;
   }
-  .comments__past-comment-avatar {
-    -webkit-box-flex: 9;
-        -ms-flex: 9;
-            flex: 9;
-  }
-  .comments__past-comment-body {
-    -webkit-box-flex: 91;
-        -ms-flex: 91;
-            flex: 91;
-  }
-  .comments__past-body-title {
+  .comments__past-commentbox-body-title {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+  .comments__past-commentbox-body-title-name {
+    margin-right: 1vw;
   }
 }
 
@@ -1246,16 +1157,17 @@ body {
           box-sizing: inherit;
 }
 
-.btn {
+button {
   background-color: #323232;
   color: #FFF;
   font-family: "AvenirDemiBold";
   border-radius: 4px;
   font-size: 16px;
   border: none;
+  height: 48px;
 }
 
-.btn:hover {
+button:hover {
   background-color: black;
 }
 /*# sourceMappingURL=main.css.map */
