@@ -166,23 +166,60 @@ function naturalDate(inputDate) {
     : date.toDateString().slice(4);
 }
 
-function displayServerComments(response) {
-  let commentsArray = response.data;
+function displayServerComments(response, tags, comments) {
+  if (Array.isArray(response.data)) {
+    comments = response.data;
+    tags = [];
+  } else {
+    comments.push(response.data);
+  }
+
   //Changing the timestamp of all comments to readable dates
-  for (comment of commentsArray) comment.date = naturalDate(comment.timestamp);
+  for (comment of comments) comment.date = naturalDate(comment.timestamp);
+
   //Displaying the comments
-  let tags = [];
-  for (i in commentsArray)
+  document.querySelector(".comments__past").innerHTML = "";
+
+  for (i in comments)
     tags[i] = elementCreator(
       ".comments__past",
       htmlStructure,
       "comments__past-",
       `${i}`
     );
-  commentsArray = commentsArray.reverse();
+  comments = comments.reverse();
   for (i in tags) {
-    elementTextChanger(tags[i], commentsArray[i]);
+    elementTextChanger(tags[i], comments[i]);
     elementAttributeSet(tags[i], attributes);
   }
-  return [tags, commentsArray];
+  return [tags, comments];
+}
+
+function actionOnComments(element, tags, comments) {
+  element.addEventListener("click", function(click) {
+    let index = this.id.split("-");
+    let id = comments[index[0]].id;
+    if (index[1] === "likebtn") {
+      axios
+        .put(
+          //Sending the new like to the API
+          `https://project-1-api.herokuapp.com/comments/${id}/like?api_key=bahar`,
+          ""
+        )
+        .then(response => {
+          comments[index[0]].likes = response.data.likes;
+          elementTextChanger(tags[index[0]], comments[index[0]]);
+        });
+    }
+    if (index[1] === "delete") {
+      axios
+        .delete(
+          //Sending the delete request to the API
+          `https://project-1-api.herokuapp.com/comments/${id}?api_key=bahar`
+        )
+        .then(() => {
+          location.reload();
+        });
+    }
+  });
 }

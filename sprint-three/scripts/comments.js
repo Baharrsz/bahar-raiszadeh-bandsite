@@ -30,61 +30,21 @@ let attributes = {
   avatar: { src: "./assets/icons/svg/user.svg" }
 };
 
-let replyStructure = {
-  input: ["form"],
-  "name-text": ["input", "input"],
-  "comment-text": ["input", "input"],
-  btn: ["button", "input"]
-};
+let tags;
+let comments;
 
-let replyAttributes = {
-  "name-text": { name: "name" },
-  "comment-text": { name: "comment" }
-};
-
-let emptyComment = { name: "...", comment: "..." };
-
-axios //Getting previous comments from the server
-  .get("https://project-1-api.herokuapp.com/comments?api_key=bahar")
+axios
+  .get("https://project-1-api.herokuapp.com/comments?api_key=bahar") //Getting previous comments from API
   .then(response => {
-    [tags, comments] = displayServerComments(response);
+    [tags, comments] = displayServerComments(response, tags, comments); //Displaying new comments
 
-    let allComments = document.querySelectorAll(
+    let allButtons = document.querySelectorAll(
       ".comments__past-commentbox button"
     );
-    for (commentbox of allComments) {
-      commentbox.addEventListener("click", function(click) {
-        let index = this.id.split("-");
-        console.log(index);
-        let id = comments[index[0]].id;
-
-        if (index[1] === "likebtn") {
-          axios
-            .put(
-              //Sending the new like to the server
-              `https://project-1-api.herokuapp.com/comments/${id}/like?api_key=bahar`,
-              ""
-            )
-            .then(response => {
-              comments[index[0]].likes = response.data.likes;
-              elementTextChanger(tags[index[0]], comments[index[0]]);
-            });
-        }
-        if (index[1] === "delete") {
-          axios
-            .delete(
-              //Sending the new like to the server
-              `https://project-1-api.herokuapp.com/comments/${id}?api_key=bahar`
-            )
-            .then(response => {
-              location.reload();
-            });
-        }
-      });
+    for (button of allButtons) {
+      actionOnComments(button, tags, comments);
     }
   });
-
-function commentSubmit(submit) {}
 
 //Getting the new comment from the user input
 let form = document.querySelector(".comments__new");
@@ -97,23 +57,38 @@ form.addEventListener("submit", click => {
 
   axios
     .post(
-      //Sending the new comment to the server
+      //Sending the new comment to the API
       "https://project-1-api.herokuapp.com/comments?api_key=bahar",
       serverPost
     )
     .then(response => {
-      //Getting the new comment back from the server
-      let newComment = response.data;
-      comments.unshift(newComment);
-      for (i of comments) i.date = naturalDate(i.timestamp);
+      //Getting the new comment back from the API
+      [tags, comments] = displayServerComments(response, tags, comments);
 
-      //Displaying the new comment and refreshing the date of all comments that are displayed
-      tags.push(
-        elementCreator(".comments__past", htmlStructure, "comments__past-")
+      // let newComment = response.data;
+      // comments.unshift(newComment);
+      // for (i of comments) i.date = naturalDate(i.timestamp);
+
+      // //Displaying the new comment and refreshing the date of all comments that are displayed
+      // let commentsNum = tags.length;
+      // tags.push(
+      //   elementCreator(
+      //     ".comments__past",
+      //     htmlStructure,
+      //     "comments__past-",
+      //     `${commentsNum}`
+      //   )
+      // );
+      // for (i in comments) {
+      //   elementTextChanger(tags[i], comments[i]);
+      //   elementAttributeSet(tags[i], attributes);
+      // }
+
+      let allButtons = document.querySelectorAll(
+        ".comments__past-commentbox button"
       );
-      for (i in comments) {
-        elementTextChanger(tags[i], comments[i]);
-        elementAttributeSet(tags[i], attributes);
+      for (button of allButtons) {
+        actionOnComments(button, tags, comments);
       }
     });
 });
