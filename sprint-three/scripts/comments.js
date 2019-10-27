@@ -34,16 +34,12 @@ let tags;
 let comments;
 
 axios
-  .get("https://project-1-api.herokuapp.com/comments?api_key=bahar") //Getting previous comments from API
+  .get(
+    //Getting previous comments from API
+    "https://project-1-api.herokuapp.com/comments?api_key=bahar"
+  )
   .then(response => {
     [tags, comments] = commentsSectionConstructor(response, tags, comments);
-    // [tags, comments] = displayServerComments(response, tags, comments); //Displaying new comments
-    // let allButtons = document.querySelectorAll(
-    //   ".comments__past-commentbox button"
-    // );
-    // for (button of allButtons) {
-    //   actionOnComments(button, tags, comments);
-    // }
   });
 
 //Getting the new comment from the user input
@@ -62,7 +58,6 @@ form.addEventListener("submit", click => {
       serverPost
     )
     .then(response => {
-      //Getting the new comment back from the API
       [tags, comments] = commentsSectionConstructor(response, tags, comments);
     });
 });

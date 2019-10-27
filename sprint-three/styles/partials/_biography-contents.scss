@@ -53,11 +53,9 @@ content block for the 'small' mixin in the partials/__breakpoints*/
   }
 
   &__image {
-    height: 67vw;
+    height: 45.31vw; //145/320
+    width: 90vw; //288/320
     margin-bottom: 24px;
-    background-image: url(../assets/images/about-image.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
   }
 
   &__quote {
@@ -105,7 +103,7 @@ content block for the 'small' mixin in the partials/__breakpoints*/
   &__image {
     margin-bottom: 16px;
     width: 90vw; //288px/320px
-    height: 51vw; //162px/32px
+    height: 51vw; //162px/320px
     filter: grayscale(70%);
     transition: filter 1s, transform 0.5s;
 
@@ -137,7 +135,7 @@ content block for the 'medium' mixin in the partials/__breakpoints*/
 
     &__image {
       height: 47.13vw;
-      background-position: center 80%;
+      width: 93.75vw;
     }
 
     &__text {
@@ -200,10 +198,9 @@ content block for the 'huge' mixin in the partials/__breakpoints*/
     }
 
     &__image {
-      padding: 0 6.39vw; //6.39vw=(68+24)/1440
+      margin: 0 6.39vw 48px 6.39vw;
       height: 31.25vw; //450px/1440px
-      margin-bottom: 48px;
-      background-position: center 70%;
+      width: 62.22vw; //896/1440
     }
 
     &__quote {

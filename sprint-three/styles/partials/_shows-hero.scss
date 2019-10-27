@@ -30,21 +30,23 @@
   &__text {
     color: $white;
     font-family: "AvenirBold";
+    font-size: 32px;
+    line-height: 36px;
     padding-left: 5vw; //16px/320px
     z-index: 2;
     margin: 0;
   }
 
   &__subtitle {
+    font-size: 14px;
     padding-top: 20vw; //64px/320px
     padding-bottom: 10vw;
   }
 
   &__song {
     width: 90vw; //320-2*16px
-    height: 146px;
-    margin-top: 20vw; //64px/320px
-    margin-left: 5vw; //16px/320px
+    height: 120px;
+    margin: 20vw 5vw 0 5vw;
     border: none;
   }
 }
@@ -55,17 +57,20 @@
 
     &__text {
       padding-left: 3.12vw; //24px/768px
+      font-size: 60px;
+      line-height: 68px;
     }
 
     &__subtitle {
       padding-top: 12.5vw; //96px/768px
       padding-bottom: 6vw;
+      font-size: 24px;
+      line-height: 32px;
     }
 
     &__song {
-      width: 93.75vw; //768-2*24px
-      margin-top: 12.5vw;
-      margin-left: 3.12vw;
+      width: 55vw;
+      margin: 8vw 3.12vw 3.12vw 3.12vw;
     }
   }
 }
@@ -81,6 +86,7 @@
     &__text {
       width: 40.28vw;
       margin-left: 12.5vw;
+      padding: 0;
     }
 
     &__subtitle {
@@ -90,7 +96,8 @@
 
     &__song {
       width: 30.29vw; //436/1440
-      margin: 0 12.5vw 0 4.44vw;
+      height: 10.14vw; //146/1440
+      margin: 4vw 12.5vw 0 4.44vw;
     }
   }
 }
