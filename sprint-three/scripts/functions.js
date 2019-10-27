@@ -166,12 +166,20 @@ function naturalDate(inputDate) {
     : date.toDateString().slice(4);
 }
 
+/**
+ * This function displays the comments in the comment section.
+ * @param {object} response The response recieved from the API after either refreshin page or posting a new comment
+ * @param {Array} tags Contains the HTML elements corresponding to all comments
+ * @param {Array} comments Contains all comments
+ */
 function displayServerComments(response, tags, comments) {
+  //Creating and ordering the array of comments
   if (Array.isArray(response.data)) {
     comments = response.data;
+    comments = comments.reverse();
     tags = [];
   } else {
-    comments.push(response.data);
+    comments.unshift(response.data);
   }
 
   //Changing the timestamp of all comments to readable dates
@@ -187,7 +195,6 @@ function displayServerComments(response, tags, comments) {
       "comments__past-",
       `${i}`
     );
-  comments = comments.reverse();
   for (i in tags) {
     elementTextChanger(tags[i], comments[i]);
     elementAttributeSet(tags[i], attributes);
@@ -195,6 +202,12 @@ function displayServerComments(response, tags, comments) {
   return [tags, comments];
 }
 
+/**
+ * This function is responsible for the behavior of the the delete and like buttons.
+ * @param {object} element The like and delete buttons
+ * @param {Array} tags Contains the HTML elements corresponding to all comments
+ * @param {Array} comments Contains all comments
+ */
 function actionOnComments(element, tags, comments) {
   element.addEventListener("click", function(click) {
     let index = this.id.split("-");
@@ -224,6 +237,14 @@ function actionOnComments(element, tags, comments) {
   });
 }
 
+/**
+ * This function displays comments and adds functionality to like and delete buttons.
+ * It runs the @displayServerComments  and @actionOnComments functions.
+ *
+ * @param {object} response The response recieved from the API after either refreshin page or posting a new comment
+ * @param {Array} tags Contains the HTML elements corresponding to all comments
+ * @param {Array} comments Contains all comments
+ */
 function commentsSectionConstructor(response, tags, comments) {
   [tags, comments] = displayServerComments(response, tags, comments); //Displaying new comments
 
