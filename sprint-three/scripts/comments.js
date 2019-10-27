@@ -36,14 +36,14 @@ let comments;
 axios
   .get("https://project-1-api.herokuapp.com/comments?api_key=bahar") //Getting previous comments from API
   .then(response => {
-    [tags, comments] = displayServerComments(response, tags, comments); //Displaying new comments
-
-    let allButtons = document.querySelectorAll(
-      ".comments__past-commentbox button"
-    );
-    for (button of allButtons) {
-      actionOnComments(button, tags, comments);
-    }
+    [tags, comments] = commentsSectionConstructor(response, tags, comments);
+    // [tags, comments] = displayServerComments(response, tags, comments); //Displaying new comments
+    // let allButtons = document.querySelectorAll(
+    //   ".comments__past-commentbox button"
+    // );
+    // for (button of allButtons) {
+    //   actionOnComments(button, tags, comments);
+    // }
   });
 
 //Getting the new comment from the user input
@@ -63,32 +63,6 @@ form.addEventListener("submit", click => {
     )
     .then(response => {
       //Getting the new comment back from the API
-      [tags, comments] = displayServerComments(response, tags, comments);
-
-      // let newComment = response.data;
-      // comments.unshift(newComment);
-      // for (i of comments) i.date = naturalDate(i.timestamp);
-
-      // //Displaying the new comment and refreshing the date of all comments that are displayed
-      // let commentsNum = tags.length;
-      // tags.push(
-      //   elementCreator(
-      //     ".comments__past",
-      //     htmlStructure,
-      //     "comments__past-",
-      //     `${commentsNum}`
-      //   )
-      // );
-      // for (i in comments) {
-      //   elementTextChanger(tags[i], comments[i]);
-      //   elementAttributeSet(tags[i], attributes);
-      // }
-
-      let allButtons = document.querySelectorAll(
-        ".comments__past-commentbox button"
-      );
-      for (button of allButtons) {
-        actionOnComments(button, tags, comments);
-      }
+      [tags, comments] = commentsSectionConstructor(response, tags, comments);
     });
 });

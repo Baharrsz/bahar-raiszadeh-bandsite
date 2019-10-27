@@ -223,3 +223,15 @@ function actionOnComments(element, tags, comments) {
     }
   });
 }
+
+function commentsSectionConstructor(response, tags, comments) {
+  [tags, comments] = displayServerComments(response, tags, comments); //Displaying new comments
+
+  let allButtons = document.querySelectorAll(
+    ".comments__past-commentbox button"
+  );
+  for (button of allButtons) {
+    actionOnComments(button, tags, comments);
+  }
+  return [tags, comments];
+}
