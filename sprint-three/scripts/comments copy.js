@@ -20,12 +20,15 @@ let htmlStructure = {
   likebtn: ["button", "likebox"],
   likeicon: ["img", "likebtn"],
   likes: ["div", "likebox"],
+  reply: ["button", "actions"],
+  replyicon: ["img", "reply"],
   delete: ["button", "actions"],
   deleteicon: ["img", "delete"]
 };
 
 let attributes = {
   likeicon: { src: "./assets/icons/svg/like.svg", name: "like" },
+  replyicon: { src: "./assets/icons/svg/reply.svg", name: "reply" },
   deleteicon: { src: "./assets/icons/svg/delete.svg", name: "delete" },
   avatar: { src: "./assets/icons/svg/user.svg" }
 };
@@ -100,6 +103,61 @@ axios //Getting previous comments from the server
             .then(response => {
               location.reload();
             });
+        }
+
+        if (index[1] === "reply") {
+          let commentToReply = document.getElementById(`${index[0]}-body`);
+
+          tags.push(
+            elementCreator(
+              commentToReply,
+              replyStructure,
+              "comments__new-",
+              "test"
+            )
+          );
+
+          elementAttributeSet(tags[tags.length - 1], replyAttributes);
+          console.log("last tag", tags[tags.length - 1]);
+
+          let formTwo = document.querySelector("#test-input");
+          console.log(formTwo);
+          formTwo.addEventListener("submit", submit => {
+            submit.preventDefault();
+
+            let serverPost = {};
+            serverPost.name = submit.target.name.value;
+            serverPost.comment = submit.target.comment.value;
+
+            axios
+              .post(
+                //Sending the new comment to the server
+                "https://project-1-api.herokuapp.com/comments?api_key=bahar",
+                serverPost
+              )
+              .then(response => {
+                //Getting the new comment back from the server
+                let newComment = response.data;
+                comments.unshift(newComment);
+                for (i of comments) i.date = naturalDate(i.timestamp);
+
+                //Displaying the new comment and refreshing the date of all comments that are displayed
+                tags.push(
+                  elementCreator(
+                    ".comments__past",
+                    htmlStructure,
+                    "comments__past-"
+                  )
+                );
+                for (i in comments) elementTextChanger(tags[i], comments[i]);
+              });
+          });
+
+          // tags.push(
+          //   elementCreator(commentToReply, htmlStructure, "comments__past-")
+          // );
+          // elementTextChanger(tags[tags.length - 1], emptyComment);
+          // elementAttributeSet(tags[tags.length - 1], attributes);
         }
       });
     }

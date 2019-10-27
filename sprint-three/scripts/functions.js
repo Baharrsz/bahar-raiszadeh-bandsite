@@ -57,6 +57,20 @@ function elementTextChanger(elements, content) {
 }
 
 /**
+ * Replaces the innerText of elements in @elements with the values of the corresponding keys from @content
+ * @param {object} elements {element name: HTML element}
+ * @param {object} attributes {element name: {"attribute name", "attribute value"}}
+ */
+function elementAttributeSet(elements, attributes) {
+  for (key in elements) {
+    if (typeof attributes[key] !== "undefined") {
+      for (attribute in attributes[key])
+        elements[key].setAttribute(attribute, attributes[key][attribute]);
+    }
+  }
+}
+
+/**
  * Creates an object using values of @keyArray as keys and values of @valueArray as values
  * @param {Array} keyArray
  * @param {Array} valueArray
@@ -126,12 +140,13 @@ function tableCreator(tableContainer, className, dataArray) {
 }
 
 /**
- * If the input is older than 10 days ago, the function returns the time difference between input and the current time in a natural way (some minutes/days ago, yesterday, etc.), otherwise it returns the date of the input.
+ * If the input is older than 10 days ago, the function returns the time difference between input and the current time in a natural way (some minutes/days ago, yesterday, etc.), otherwise it returns the date of the input (if it's in the same year, it ommits the year).
  * @param {integer} date a timestamp
  */
 function naturalDate(inputDate) {
   //Difference between two dates in minutes
   let diff = (Date.now() - inputDate) / (60 * 1000);
+  let date = new Date(inputDate);
   return diff < 1
     ? "Seconds ago"
     : Math.round(diff) < 2
@@ -146,5 +161,7 @@ function naturalDate(inputDate) {
     ? "Yesterday"
     : Math.round(diff / 24 / 60) < 11
     ? `${Math.round(diff / 24 / 60)} days ago`
-    : new Date(inputDate).toDateString();
+    : date.getFullYear() === new Date().getFullYear()
+    ? date.toDateString().slice(4, -4)
+    : date.toDateString().slice(4);
 }

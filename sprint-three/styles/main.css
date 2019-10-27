@@ -873,6 +873,17 @@ label,
   width: 90vw;
   margin-top: 32px;
   margin-bottom: 16px;
+  background-color: #323232;
+  color: #FFF;
+  font-family: "AvenirDemiBold";
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  height: 48px;
+}
+
+.shows-tours__table-row-cell--btn:hover {
+  background-color: black;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1039,6 +1050,7 @@ label,
   height: 48px;
   padding: 16px;
   margin-bottom: 24px;
+  overflow-wrap: break-word;
 }
 
 .comments__new-input-comment {
@@ -1051,6 +1063,17 @@ label,
 
 .comments__new-input-btn {
   margin-bottom: 32px;
+  background-color: #323232;
+  color: #FFF;
+  font-family: "AvenirDemiBold";
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  height: 48px;
+}
+
+.comments__new-input-btn:hover {
+  background-color: black;
 }
 
 .comments__past-commentbox {
@@ -1058,7 +1081,8 @@ label,
   display: -ms-flexbox;
   display: flex;
   padding: 24px 0;
-  border-bottom: 1px solid #E1E1E1;
+  border-top: 0.5px solid #E1E1E1;
+  border-bottom: 0.5px solid #E1E1E1;
 }
 
 .comments__past-commentbox-avatarbox-avatar {
@@ -1087,6 +1111,30 @@ label,
 
 .comments__past-commentbox-body-title-date {
   color: #AFAFAF;
+}
+
+.comments__past-commentbox-body-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 8px;
+}
+
+.comments__past-commentbox-body-actions img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.comments__past-commentbox-body-actions-likebox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 5vw;
+}
+
+.comments__past-commentbox-body-actions-likebox-likes {
+  padding-top: 4px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1155,19 +1203,5 @@ body {
 *:after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-}
-
-button {
-  background-color: #323232;
-  color: #FFF;
-  font-family: "AvenirDemiBold";
-  border-radius: 4px;
-  font-size: 16px;
-  border: none;
-  height: 48px;
-}
-
-button:hover {
-  background-color: black;
 }
 /*# sourceMappingURL=main.css.map */
