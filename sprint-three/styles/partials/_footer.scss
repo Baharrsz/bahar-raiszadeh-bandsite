@@ -47,12 +47,15 @@
   }
 
   &__copyright {
-    padding-left: 2.5%;
-    margin-bottom: 48px;
+    margin: 40px 5vw 16px 5vw;
 
     &-new-line {
       display: block;
     }
+  }
+
+  &__credits {
+    margin: 16px 5vw 0 5vw;
   }
 }
 //Mobile version
@@ -94,11 +97,16 @@
 
     &__copyright {
       padding-left: 0;
-      margin-bottom: 0;
+      margin-left: 0;
 
       &-new-line {
         display: inline;
       }
+    }
+
+    &__credits {
+      margin: 16px 3.12vw 0 3.12vw;
+      margin-left: 0;
     }
   }
 }

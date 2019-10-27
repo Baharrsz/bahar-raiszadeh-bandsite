@@ -64,6 +64,9 @@
   }
 
   &__past {
+    height: 150vw;
+    overflow: auto;
+
     &-commentbox {
       display: flex;
       padding: 24px 0;
@@ -106,6 +109,7 @@
 
           button {
             border: none;
+            background-color: transparent;
           }
 
           img {
@@ -143,14 +147,14 @@
     }
 
     &__past {
-      &-commentbox {
-        &-body {
-          &-title {
-            justify-content: flex-start;
+      height: 70vw;
 
-            &-name {
-              margin-right: 3.12vw;
-            }
+      &-commentbox-body {
+        &-title {
+          justify-content: flex-start;
+
+          &-name {
+            margin-right: 3.12vw;
           }
         }
       }
@@ -178,14 +182,14 @@
     }
 
     &__past {
-      &-commentbox {
-        &-body {
-          &-title {
-            justify-content: flex-start;
+      height: 50vw;
 
-            &-name {
-              margin-right: 1vw;
-            }
+      &-commentbox-body {
+        &-title {
+          justify-content: flex-start;
+
+          &-name {
+            margin-right: 1vw;
           }
         }
       }

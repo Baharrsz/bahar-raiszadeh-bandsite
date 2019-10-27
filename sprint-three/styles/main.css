@@ -205,12 +205,15 @@
 }
 
 .footer__copyright {
-  padding-left: 2.5%;
-  margin-bottom: 48px;
+  margin: 40px 5vw 16px 5vw;
 }
 
 .footer__copyright-new-line {
   display: block;
+}
+
+.footer__credits {
+  margin: 16px 5vw 0 5vw;
 }
 
 @media only screen and (min-width: 768px) {
@@ -253,10 +256,14 @@
   }
   .footer__copyright {
     padding-left: 0;
-    margin-bottom: 0;
+    margin-left: 0;
   }
   .footer__copyright-new-line {
     display: inline;
+  }
+  .footer__credits {
+    margin: 16px 3.12vw 0 3.12vw;
+    margin-left: 0;
   }
 }
 
@@ -1079,6 +1086,11 @@ label,
   background-color: black;
 }
 
+.comments__past {
+  height: 150vw;
+  overflow: auto;
+}
+
 .comments__past-commentbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1133,6 +1145,7 @@ label,
 
 .comments__past-commentbox-body-actions button {
   border: none;
+  background-color: transparent;
 }
 
 .comments__past-commentbox-body-actions img {
@@ -1165,6 +1178,9 @@ label,
   .comments__new-input-btn {
     width: 160px;
   }
+  .comments__past {
+    height: 70vw;
+  }
   .comments__past-commentbox-body-title {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -1193,6 +1209,9 @@ label,
   }
   .comments__new-input-btn {
     width: 160px;
+  }
+  .comments__past {
+    height: 50vw;
   }
   .comments__past-commentbox-body-title {
     -webkit-box-pack: start;
