@@ -44,27 +44,6 @@ let replyAttributes = {
 
 let emptyComment = { name: "...", comment: "..." };
 
-function displayServerComments(response) {
-  let commentsArray = response.data;
-  //Changing the timestamp of all comments to readable dates
-  for (comment of commentsArray) comment.date = naturalDate(comment.timestamp);
-  //Displaying the comments
-  let tags = [];
-  for (i in commentsArray)
-    tags[i] = elementCreator(
-      ".comments__past",
-      htmlStructure,
-      "comments__past-",
-      `${i}`
-    );
-  commentsArray = commentsArray.reverse();
-  for (i in tags) {
-    elementTextChanger(tags[i], commentsArray[i]);
-    elementAttributeSet(tags[i], attributes);
-  }
-  return [tags, commentsArray];
-}
-
 axios //Getting previous comments from the server
   .get("https://project-1-api.herokuapp.com/comments?api_key=bahar")
   .then(response => {
@@ -105,6 +84,8 @@ axios //Getting previous comments from the server
     }
   });
 
+function commentSubmit(submit) {}
+
 //Getting the new comment from the user input
 let form = document.querySelector(".comments__new");
 form.addEventListener("submit", click => {
@@ -130,6 +111,9 @@ form.addEventListener("submit", click => {
       tags.push(
         elementCreator(".comments__past", htmlStructure, "comments__past-")
       );
-      for (i in comments) elementTextChanger(tags[i], comments[i]);
+      for (i in comments) {
+        elementTextChanger(tags[i], comments[i]);
+        elementAttributeSet(tags[i], attributes);
+      }
     });
 });

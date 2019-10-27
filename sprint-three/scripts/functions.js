@@ -165,3 +165,24 @@ function naturalDate(inputDate) {
     ? date.toDateString().slice(4, -4)
     : date.toDateString().slice(4);
 }
+
+function displayServerComments(response) {
+  let commentsArray = response.data;
+  //Changing the timestamp of all comments to readable dates
+  for (comment of commentsArray) comment.date = naturalDate(comment.timestamp);
+  //Displaying the comments
+  let tags = [];
+  for (i in commentsArray)
+    tags[i] = elementCreator(
+      ".comments__past",
+      htmlStructure,
+      "comments__past-",
+      `${i}`
+    );
+  commentsArray = commentsArray.reverse();
+  for (i in tags) {
+    elementTextChanger(tags[i], commentsArray[i]);
+    elementAttributeSet(tags[i], attributes);
+  }
+  return [tags, commentsArray];
+}
