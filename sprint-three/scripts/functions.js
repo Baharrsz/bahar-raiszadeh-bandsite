@@ -173,7 +173,7 @@ function naturalDate(inputDate) {
  * @param {Array} comments Contains all comments
  */
 function displayServerComments(response, tags, comments) {
-  //Creating and ordering the array of comments
+  //Checking whether response contains all comments or a single new comment, and creating and ordering the array of comments accordingly
   if (Array.isArray(response.data)) {
     comments = response.data;
     comments = comments.reverse();
